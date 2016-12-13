@@ -1,40 +1,43 @@
 
 # Created by https://www.gitignore.io/api/intellij+iml,python
 
+
+/data_gen/**/*.class
+
 ### Intellij+iml ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff:
-.idea/workspace.xml
-.idea/tasks.xml
+/data_gen/.idea/workspace.xml
+/data_gen/.idea/tasks.xml
 
 # Sensitive or high-churn files:
-.idea/dataSources/
-.idea/dataSources.ids
-.idea/dataSources.xml
-.idea/dataSources.local.xml
-.idea/sqlDataSources.xml
-.idea/dynamic.xml
-.idea/uiDesigner.xml
+/data_gen/.idea/dataSources/
+/data_gen/.idea/dataSources.ids
+/data_gen/.idea/dataSources.xml
+/data_gen/.idea/dataSources.local.xml
+/data_gen/.idea/sqlDataSources.xml
+/data_gen/.idea/dynamic.xml
+/data_gen/.idea/uiDesigner.xml
 
 # Gradle:
-.idea/gradle.xml
-.idea/libraries
+/data_gen/.idea/gradle.xml
+/data_gen/.idea/libraries
 
 # Mongo Explorer plugin:
-.idea/mongoSettings.xml
+/data_gen/.idea/mongoSettings.xml
 
 ## File-based project format:
-*.iws
+/data_gen/*.iws
 
 ## Plugin-specific files:
 
 # IntelliJ
-/out/
+/data_gen/out/
 
 # mpeltonen/sbt-idea plugin
-.idea_modules/
+/data_gen/.idea_modules/
 
 # JIRA plugin
 atlassian-ide-plugin.xml
@@ -49,9 +52,9 @@ fabric.properties
 # Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-249601023 
 
 *.iml
-modules.xml
-.idea/misc.xml 
-*.ipr
+/data_gen/modules.xml
+/data_gen/.idea/misc.xml 
+/data_gen/*.ipr
 
 
 ### Python ###
@@ -72,7 +75,6 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
 lib64/
 parts/
 sdist/
