@@ -9,28 +9,21 @@ import nl.captcha.text.renderer.WordRenderer;
 import java.awt.*;
 import java.awt.font.FontRenderContext;
 import java.awt.font.GlyphVector;
-import java.awt.font.TextAttribute;
-import java.awt.font.TextLayout;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.security.SecureRandom;
-import java.text.AttributedCharacterIterator;
-import java.text.AttributedString;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 /**
  * Renders the answer onto the image.
- *
- * @author <a href="mailto:james.childers@gmail.com">James Childers</a>
  */
-public class DefaultWordRenderer1 implements WordRenderer {
+public class CustomWordRenderer implements WordRenderer {
 
     private static final Random RAND = new SecureRandom();
     private static final List<Color> DEFAULT_COLORS = new ArrayList<Color>();
     private static final List<Font> DEFAULT_FONTS = new ArrayList<Font>();
-    // The text will be rendered 25%/5% of the image height/width from the X and Y axes
     private static final double YOFFSET = 0.25;
     private static final double XOFFSET = 0.05;
 
@@ -46,7 +39,7 @@ public class DefaultWordRenderer1 implements WordRenderer {
     /**
      * Use the default color (black) and fonts (Arial and Courier).
      */
-    public DefaultWordRenderer1() {
+    public CustomWordRenderer() {
         this(DEFAULT_COLORS, DEFAULT_FONTS);
     }
 
@@ -57,7 +50,7 @@ public class DefaultWordRenderer1 implements WordRenderer {
      * @param colors
      * @param fonts
      */
-    public DefaultWordRenderer1(List<Color> colors, List<Font> fonts) {
+    public CustomWordRenderer(List<Color> colors, List<Font> fonts) {
         _colors.addAll(colors);
         _fonts.addAll(fonts);
     }
@@ -95,22 +88,50 @@ public class DefaultWordRenderer1 implements WordRenderer {
             g.setFont(font);
 
             GlyphVector gv = font.createGlyphVector(frc, chars);
-            if (new Random().nextBoolean()) {
-                double theta = (double) i / (double) (word.length() - 1) * Math.PI / 4;
-                AffineTransform at = AffineTransform.getTranslateInstance(xBaseline + RAND.nextInt(2), yBaseline + RAND.nextInt(10));
-                at.rotate(theta);
-                Shape glyph = gv.getOutline();
-                Shape transformedGlyph = at.createTransformedShape(glyph);
-                g.draw(transformedGlyph);
+
+            // Randomly select what to render
+            boolean rotate = RAND.nextBoolean();
+            boolean outline = RAND.nextBoolean();
+
+            int x = xBaseline + RAND.nextInt(2);
+            int y = yBaseline + RAND.nextInt(10);
+            double theta = (double) i / (double) (word.length() - 1) * Math.PI / 4;
+
+            if (rotate && outline) {
+                g.draw(rotateAndOutlineLetter(gv, x, y, theta));
+            } else if (rotate) {
+                g.fill(rotateLetter(gv, x, y, theta));
+            } else if (outline) {
+                g.draw(outlineLetter(gv, x, y));
             } else {
-                g.drawGlyphVector(gv, xBaseline + RAND.nextInt(2), yBaseline + RAND.nextInt(10));
+                g.drawGlyphVector(gv, x, y);
             }
 
             int width = (int) gv.getVisualBounds().getWidth();
-            xBaseline = xBaseline + width - 2;
-            yBaseline -= +RAND.nextInt(10);
+            xBaseline = xBaseline + width;
+            yBaseline -= RAND.nextInt(10);
             i++;
         }
+    }
+
+    private static Shape outlineLetter(GlyphVector gv, int x, int y) {
+        Shape glyph = gv.getOutline();
+        AffineTransform at = AffineTransform.getTranslateInstance(x, y);
+        return at.createTransformedShape(glyph);
+    }
+
+    private static Shape rotateLetter(GlyphVector gv, int x, int y, double theta) {
+        Shape glyph = gv.getGlyphOutline(0);
+        AffineTransform at = AffineTransform.getTranslateInstance(x, y);
+        at.rotate(theta);
+        return at.createTransformedShape(glyph);
+    }
+
+    private static Shape rotateAndOutlineLetter(GlyphVector gv, int x, int y, double theta) {
+        Shape glyph = gv.getOutline();
+        AffineTransform at = AffineTransform.getTranslateInstance(x, y);
+        at.rotate(theta);
+        return at.createTransformedShape(glyph);
     }
 }
 
