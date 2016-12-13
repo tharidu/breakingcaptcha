@@ -27,7 +27,7 @@ public final class FlatColorBackgroundProducer implements BackgroundProducer {
     @Override
     public BufferedImage getBackground(int width, int height) {
         BufferedImage img = new BufferedImage(width, height,
-                BufferedImage.TYPE_INT_RGB);
+                BufferedImage.TYPE_BYTE_BINARY);
 
         Graphics2D graphics = img.createGraphics();
         graphics.setPaint(_color);

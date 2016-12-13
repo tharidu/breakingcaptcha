@@ -36,8 +36,8 @@ public class DefaultWordRenderer1 implements WordRenderer {
 
     static {
         DEFAULT_COLORS.add(Color.BLACK);
-        DEFAULT_FONTS.add(new Font("Arial", Font.BOLD, 40));
-        DEFAULT_FONTS.add(new Font("Courier", Font.BOLD, 40));
+        DEFAULT_FONTS.add(new Font("Arial", Font.BOLD, 50));
+        DEFAULT_FONTS.add(new Font("Courier", Font.BOLD, 50));
     }
 
     private final List<Color> _colors = new ArrayList<Color>();
