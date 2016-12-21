@@ -12,8 +12,8 @@ IMAGE_HEIGHT = 128
 
 # Global constants describing the captcha data set.
 NUM_CLASSES = 36
-NUM_EXAMPLES_PER_EPOCH_FOR_TRAIN = 50000
-NUM_EXAMPLES_PER_EPOCH_FOR_EVAL = 10000
+NUM_EXAMPLES_PER_EPOCH_FOR_TRAIN = 1000
+NUM_EXAMPLES_PER_EPOCH_FOR_EVAL = 100
 
 
 def read_captcha(filename_queue):
@@ -23,21 +23,19 @@ def read_captcha(filename_queue):
     result = CaptchaRecord()
 
     label_bytes = 5
-    result.height = IMAGE_WIDTH
+    result.height = IMAGE_HEIGHT
     result.width = IMAGE_WIDTH
     result.depth = 1
     image_bytes = result.height * result.width * result.depth
     record_bytes = label_bytes + image_bytes
-
     reader = tf.FixedLengthRecordReader(record_bytes=record_bytes)
     result.key, value = reader.read(filename_queue)
 
     # Convert from a string to a vector of uint8 that is record_bytes long.
     record_bytes = tf.decode_raw(value, tf.uint8)
-
     # The first bytes represent the label, which we convert from uint8->int32.
     result.label = tf.cast(
-      tf.slice(record_bytes, [0], [label_bytes]), tf.int32)
+      tf.slice(record_bytes, [0], [label_bytes]),tf.uint8)
 
     # The remaining bytes after the label represent the image, which we reshape
     # from [depth * height * width] to [depth, height, width].
@@ -65,7 +63,7 @@ def _generate_image_and_label_batch(image, label, min_queue_examples,
     """
     # Create a queue that shuffles the examples, and then
     # read 'batch_size' images + labels from the example queue.
-    num_preprocess_threads = 16
+    num_preprocess_threads = 1
     if shuffle:
         images, label_batch = tf.train.shuffle_batch(
                 [image, label],
@@ -83,13 +81,13 @@ def _generate_image_and_label_batch(image, label, min_queue_examples,
     # Display the training images in the visualizer.
     tf.image_summary('images', images)
 
-    return images, tf.reshape(label_batch, [batch_size])
+    return images, tf.reshape(label_batch, [batch_size,5])
 
 
 def inputs(eval_data, data_dir, batch_size):
     if not eval_data:
-        filenames = [os.path.join(data_dir, 'data_batch_%d.bin' % i)
-                     for i in xrange(1, 6)]
+        filenames = [os.path.join(data_dir, 'data' )]
+
         num_examples_per_epoch = NUM_EXAMPLES_PER_EPOCH_FOR_TRAIN
     else:
         filenames = [os.path.join(data_dir, 'test_batch.bin')]
@@ -115,7 +113,8 @@ def inputs(eval_data, data_dir, batch_size):
                                                          width, height)
 
     # Subtract off the mean and divide by the variance of the pixels.
-    float_image = tf.image.per_image_standardization(resized_image)
+    float_image = tf.image.per_image_whitening(resized_image)
+
 
     # Ensure that the random shuffling has good mixing properties.
     min_fraction_of_examples_in_queue = 0.4

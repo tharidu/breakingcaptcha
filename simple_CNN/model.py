@@ -17,11 +17,11 @@ from readers import captcha_reader
 FLAGS = tf.app.flags.FLAGS
 
 # Basic model parameters.
-tf.app.flags.DEFINE_integer('batch_size', 128,
+tf.app.flags.DEFINE_integer('batch_size', 100,
                             """Number of images to process in a batch.""")
 # TODO: Adjust data dir
-tf.app.flags.DEFINE_string('data_dir', '/tmp/cifar10_data',
-                           """Path to the CIFAR-10 data directory.""")
+tf.app.flags.DEFINE_string('data_dir', '/home/akash/projects/breakingcaptcha/readers/data/',
+                           """Path to the data directory.""")
 tf.app.flags.DEFINE_boolean('use_fp16', False,
                             """Train the model using fp16.""")
 
@@ -113,8 +113,8 @@ def normal_inputs():
     if not FLAGS.data_dir:
         raise ValueError('Please supply a data_dir')
     #TODO: Adjust to datadir
-    data_dir = os.path.join(FLAGS.data_dir, 'cifar-10-batches-bin')
-    images, labels = captcha_reader.inputs(data_dir=data_dir,
+    data_dir = os.path.join(FLAGS.data_dir, '')
+    images, labels = captcha_reader.inputs(False,data_dir=data_dir,
                                            batch_size=FLAGS.batch_size)
     if FLAGS.use_fp16:
         images = tf.cast(images, tf.float16)
@@ -159,9 +159,10 @@ def inference(images):
     # conv1
     with tf.variable_scope('conv1') as scope:
         kernel = _variable_with_weight_decay('weights',
-                                             shape=[5, 5, 3, 64],
+                                             shape=[5, 5,1 , 64],
                                              stddev=5e-2,
                                              wd=0.0)
+        print(images.get_shape())
         conv = tf.nn.conv2d(images, kernel, [1, 1, 1, 1], padding='SAME')
         biases = _variable_on_cpu('biases', [64], tf.constant_initializer(0.0))
         pre_activation = tf.nn.bias_add(conv, biases)
