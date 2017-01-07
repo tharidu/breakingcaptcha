@@ -149,3 +149,4 @@ ENV/
 .ropeproject
 
 /.idea/
+/data_gen/imgs/
