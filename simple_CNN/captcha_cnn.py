@@ -8,10 +8,8 @@ import numpy as np
 import time
 from readers import image_reader
 
-train_X, train_Y = image_reader.load_dataset()
-
-#TODO create test dataset
-test_X,test_Y = image_reader.load_dataset()
+train_X, train_Y = image_reader.load_training_dataset()
+test_X,test_Y = image_reader.load_testing_dataset()
 
 X = tf.placeholder(tf.float32,[None,216*128])
 Y_= tf.placeholder(tf.float32,[None,5*36])
