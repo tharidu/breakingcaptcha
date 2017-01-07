@@ -20,7 +20,7 @@ FLAGS = tf.app.flags.FLAGS
 tf.app.flags.DEFINE_integer('batch_size', 100,
                             """Number of images to process in a batch.""")
 # TODO: Adjust data dir
-tf.app.flags.DEFINE_string('data_dir', '/home/akash/projects/breakingcaptcha/readers/data/',
+tf.app.flags.DEFINE_string('data_dir', '../data/',
                            """Path to the data directory.""")
 tf.app.flags.DEFINE_boolean('use_fp16', False,
                             """Train the model using fp16.""")
