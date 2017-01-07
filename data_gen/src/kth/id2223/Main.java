@@ -37,7 +37,7 @@ public class Main extends JPanel {
     }
 
     public static void generateDatasets(String folder, long datasetSize) throws IOException {
-        OutputStream f = new FileOutputStream("data");
+//        OutputStream f = new FileOutputStream("data");
 
         for (int i = 0; i < datasetSize; i++) {
             Captcha captcha = new Captcha.Builder(216, 128)
@@ -46,14 +46,14 @@ public class Main extends JPanel {
                     .addBackground(new FlatColorBackgroundProducer(Color.WHITE))
                     .build();
 
-            byte[] b = captcha.getAnswer().getBytes(StandardCharsets.US_ASCII);
-            byte[] pixels = ((DataBufferByte) captcha.getImage().getRaster().getDataBuffer()).getData();
+//            byte[] b = captcha.getAnswer().getBytes(StandardCharsets.US_ASCII);
+//            byte[] pixels = ((DataBufferByte) captcha.getImage().getRaster().getDataBuffer()).getData();
 
             File outputfile = new File(folder + "/" + captcha.getAnswer() + ".jpg");
             ImageIO.write(captcha.getImage(), "jpg", outputfile);
 
-            f.write(b);
-            f.write(pixels);
+//            f.write(b);
+//            f.write(pixels);
 //            for (int i1 = 0; i1 < pixels.length; i1++) {
 //
 //            }
@@ -64,7 +64,7 @@ public class Main extends JPanel {
 //            }
 
         }
-        f.flush();
-        f.close();
+//        f.flush();
+//        f.close();
     }
 }
