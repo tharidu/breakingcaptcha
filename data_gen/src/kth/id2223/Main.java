@@ -32,7 +32,7 @@ public class Main extends JPanel {
 //        frame.setSize(300, 300);
 //        frame.setVisible(true);
 
-        generateDatasets("imgs", 100);
+        generateDatasets("imgs", 1000);
         generateDatasets("test_imgs", 100);
     }
 
