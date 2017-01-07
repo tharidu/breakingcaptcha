@@ -42,12 +42,15 @@ def apply_max_pool(x,ksize,strides, padding='SAME'):
   return tf.nn.max_pool(x, ksize,strides, padding)
 
 #create first conv layer, with 3 input channel of orig. image, 4 output channels, stride of 1*1 and padding =SAME
+
+keep_prob = tf.placeholder(tf.float32)
+
 W1 = create_conv_weight(3,3,1,32)
 B1 = create_bias([32])
 strides1 = create_strides(1,1,1,1)
 Y1 = tf.nn.relu(create_conv_layer(X,W1,strides1,padding="SAME")+B1)
 Y1 = apply_max_pool(Y1,[1,2,2,1],[1,2,2,1])
-Y1 = tf.nn.dropout(Y1,.75)
+Y1 = tf.nn.dropout(Y1,keep_prob=keep_prob)
 
 
 
@@ -56,14 +59,14 @@ B2 = create_bias([64])
 strides2 = create_strides(1,1,1,1)
 Y2 = tf.nn.relu(create_conv_layer(Y1,W2,strides2,padding="SAME")+B2)
 Y2 = apply_max_pool(Y2,[1,2,2,1],[1,2,2,1])
-Y2 = tf.nn.dropout(Y2,.75)
+Y2 = tf.nn.dropout(Y2,keep_prob=keep_prob)
 
 W3 = create_conv_weight(3,3,64,64)
 B3 = create_bias([64])
 strides3 = create_strides(1,1,1,1)
 Y3 = tf.nn.relu(create_conv_layer(Y2,W3,strides3,padding="SAME")+B3)
 Y3 = apply_max_pool(Y3,[1,2,2,1],[1,2,2,1])
-Y3 = tf.nn.dropout(Y3,.75)
+Y3 = tf.nn.dropout(Y3,keep_prob=keep_prob)
 
 
 #keep_prob = tf.placeholder(tf.float32)
@@ -73,7 +76,7 @@ Y3 = tf.reshape(Y3,[-1,27*16*64])
 W4 = create_fully_connected_weight([27*16*64,1024])
 B4 = create_bias([1024])
 Y4 = tf.nn.relu(tf.matmul(Y3,W4)+B4)
-Y4 = tf.nn.dropout(Y4,keep_prob=.75)
+Y4 = tf.nn.dropout(Y4,keep_prob=keep_prob)
 
 W5 = create_fully_connected_weight([1024,5*36])
 B5 = create_bias([5*36])
@@ -120,13 +123,13 @@ def all_batches_run_train(n_batches, data=None, labels=None):
         batch_data = data[offset: offset + batch_size, :, :, :]
         n_samples = batch_data.shape[0]
 
-        #print('hello here n_samples =%d' % n_samples)
+
         batch_labels = labels[offset: offset + batch_size]
-        batch_labels = (np.arange(n_classes) == batch_labels[:, None]).astype(np.float32)
+        #batch_labels = (np.arange(n_classes) == batch_labels[:, None]).astype(np.float32)
         # print np.shape(batch_data)
         # print np.shape(batch_labels)
-        feed_dict = {X: batch_data,Y_: batch_labels,keep_prob:0.5}
-        _, loss_value, a = sess.run([train_step, cross_entropy, accuracy], feed_dict=feed_dict)
+        feed_dict = {X: batch_data,Y_: batch_labels,keep_prob:0.75}
+        _, loss_value, a = sess.run([train_step, loss, accuracy], feed_dict=feed_dict)
         sum_all_batches_loss += loss_value * n_samples
         sum_all_batches_acc += a * n_samples
         sum_n_samples += n_samples
@@ -139,7 +142,53 @@ def all_batches_run_train(n_batches, data=None, labels=None):
 def run_test(data=None, labels=None):
     assert (data.shape[0] == labels.shape[0])
     batch_size_test = 10000
-    labels = (np.arange(n_classes) == labels[:, None]).astype(np.float32)
+    #labels = (np.arange(n_classes) == labels[:, None]).astype(np.float32)
     feed_dict = {X: data, Y_: labels,keep_prob:1}
     test_a = sess.run([accuracy], feed_dict=feed_dict)
     return test_a
+
+
+i=1
+
+train_ac = []
+train_loss = []
+test_ac = []
+for e in xrange(n_epochs):
+    start_time = time.time()
+    n_data = train_X.shape[0]
+    #print n_data
+    perm = np.random.permutation(n_data)
+    train_X = train_X[perm, :, :, :]
+    train_Y = train_Y[perm]
+    mean_loss_per_sample_train, accuracy_per_sample_train = all_batches_run_train(n_batches_train, data=train_X,labels=train_Y)
+    test_a = run_test(data=test_X, labels=test_Y)
+    print "loss after epoch %d = %f: "%(i,mean_loss_per_sample_train)
+    print "train accuracy after epoch %d = %f: " % (i, accuracy_per_sample_train)
+    print "test accuracy after epoch %d = %f: " % (i, test_a[0])
+
+    i=i+1
+    train_ac.append(accuracy_per_sample_train)
+    train_loss.append(mean_loss_per_sample_train)
+    test_ac.append(test_a[0])
+
+
+print('done training')
+
+plt.title("Training Accuracy over epochs")
+plt.plot(train_ac,label="Training Accuracy")
+plt.plot(test_ac,label="Test Accuracy")
+plt.xlabel("epoch")
+plt.legend(loc=4)
+plt.grid(True)
+plt.show()
+
+plt.title("Training loss over epochs")
+plt.plot(train_loss,label="Training Loss")
+plt.xlabel("epoch")
+plt.grid(True)
+plt.show()
+
+
+test_a = run_test(data=test_X, labels=test_Y)
+print('done testing')
+print("Testing Accuracy "+str(test_a[0]))
