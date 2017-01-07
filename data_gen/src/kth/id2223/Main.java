@@ -10,6 +10,8 @@ import java.awt.*;
 import java.awt.image.DataBufferByte;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Main extends JPanel {
     public void paint(Graphics g) {
@@ -38,6 +40,8 @@ public class Main extends JPanel {
 
     public static void generateDatasets(String folder, long datasetSize) throws IOException {
 //        OutputStream f = new FileOutputStream("data");
+
+        Files.createDirectories(Paths.get(folder));
 
         for (int i = 0; i < datasetSize; i++) {
             Captcha captcha = new Captcha.Builder(216, 128)
