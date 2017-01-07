@@ -32,10 +32,11 @@ public class Main extends JPanel {
 //        frame.setSize(300, 300);
 //        frame.setVisible(true);
 
-        generateDatasets(100);
+        generateDatasets("imgs", 100);
+        generateDatasets("test_imgs", 100);
     }
 
-    public static void generateDatasets(long datasetSize) throws IOException {
+    public static void generateDatasets(String folder, long datasetSize) throws IOException {
         OutputStream f = new FileOutputStream("data");
 
         for (int i = 0; i < datasetSize; i++) {
@@ -48,7 +49,7 @@ public class Main extends JPanel {
             byte[] b = captcha.getAnswer().getBytes(StandardCharsets.US_ASCII);
             byte[] pixels = ((DataBufferByte) captcha.getImage().getRaster().getDataBuffer()).getData();
 
-            File outputfile = new File("imgs/" + captcha.getAnswer() + ".jpg");
+            File outputfile = new File(folder + "/" + captcha.getAnswer() + ".jpg");
             ImageIO.write(captcha.getImage(), "jpg", outputfile);
 
             f.write(b);

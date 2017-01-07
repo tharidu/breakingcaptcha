@@ -15,10 +15,19 @@ CAPTCHA_LENGTH = 5
 NUM_CLASSES = 36
 NUM_EXAMPLES_PER_EPOCH_FOR_TRAIN = 1000
 NUM_EXAMPLES_PER_EPOCH_FOR_EVAL = 100
-folder = "../data_gen/imgs/"
+training_folder = "../data_gen/imgs/"
+testing_folder = "../data_gen/test_imgs/"
 
 
-def load_dataset():
+def load_training_dataset():
+    return load_dataset(training_folder)
+
+
+def load_testing_dataset():
+    return load_dataset(testing_folder)
+
+
+def load_dataset(folder):
     file_list = os.listdir(folder)
     no_files = len(file_list)
 
