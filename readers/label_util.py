@@ -25,7 +25,7 @@ def words_to_vec(word):
     :param word: string of length 5 to be converted into vector
     :return: len*36 vector representation of word.
     """
-    print word
+    # print word
     word_len = len(word)
     vec = np.zeros(word_len * CHAR_VOCAB_SIZE)
     #print len(vec)
