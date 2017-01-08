@@ -13,9 +13,9 @@ test_X, test_Y = image_reader.load_testing_dataset()
 
 X_input = tf.placeholder(tf.float32, [None, 152 * 80])
 X = tf.reshape(X_input, shape=[-1, 152, 80, 1])
-Y_ = tf.placeholder(tf.float32, [None, 5 * 36])
+Y_ = tf.placeholder(tf.float32, [None, 5 * image_reader.NUM_CLASSES])
 
-learning_rate = 0.1
+learning_rate = 0.01
 
 def create_fully_connected_weight(shape):
     return tf.Variable(tf.truncated_normal(shape, stddev=0.1))
@@ -61,8 +61,8 @@ Y2 = tf.nn.relu(create_conv_layer(Y1, W2, strides2, padding="SAME") + B2)
 Y2 = apply_max_pool(Y2, [1, 2, 2, 1], [1, 2, 2, 1])
 Y2 = tf.nn.dropout(Y2, keep_prob=keep_prob)
 
-W3 = create_conv_weight(5, 5, 64, 64)
-B3 = create_bias([64])
+W3 = create_conv_weight(5, 5, 64, 128)
+B3 = create_bias([128])
 strides3 = create_strides(1, 1, 1, 1)
 Y3 = tf.nn.relu(create_conv_layer(Y2, W3, strides3, padding="SAME") + B3)
 Y3 = apply_max_pool(Y3, [1, 2, 2, 1], [1, 2, 2, 1])
@@ -70,15 +70,15 @@ Y3 = tf.nn.dropout(Y3, keep_prob=keep_prob)
 
 # keep_prob = tf.placeholder(tf.float32)
 
-Y3 = tf.reshape(Y3, [-1, 19 * 10 * 64])
+Y3 = tf.reshape(Y3, [-1, 19 * 10 * 128])
 
-W4 = create_fully_connected_weight([19 * 10 * 64, 1024])
+W4 = create_fully_connected_weight([19 * 10 * 128, 1024])
 B4 = create_bias([1024])
 Y4 = tf.nn.relu(tf.matmul(Y3, W4) + B4)
 Y4 = tf.nn.dropout(Y4, keep_prob=keep_prob)
 
-W5 = create_fully_connected_weight([1024, 5 * 36])
-B5 = create_bias([5 * 36])
+W5 = create_fully_connected_weight([1024, 5 * image_reader.NUM_CLASSES])
+B5 = create_bias([5 * image_reader.NUM_CLASSES])
 Ylogits = tf.matmul(Y4, W5) + B5
 
 cross_entropy = tf.nn.sigmoid_cross_entropy_with_logits(Ylogits, Y_)
@@ -87,8 +87,8 @@ loss = tf.reduce_mean(cross_entropy)
 train_step = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(loss)
 
 # prediction
-predictions = tf.reshape(Ylogits, [-1, 5, 36])
-Ytrue = tf.reshape(Y_, [-1, 5, 36])
+predictions = tf.reshape(Ylogits, [-1, 5, image_reader.NUM_CLASSES])
+Ytrue = tf.reshape(Y_, [-1, 5, image_reader.NUM_CLASSES])
 correct_prediction = tf.equal(tf.argmax(predictions, 2), tf.argmax(Ytrue, 2))
 
 # Define the accuracy
@@ -99,7 +99,7 @@ init = tf.initialize_all_variables()
 sess = tf.Session()
 sess.run(init)
 
-n_classes = 36
+n_classes = image_reader.NUM_CLASSES
 batch_size = 50
 n_epochs = 20
 n_batches_train = int(image_reader.training_dataset_length() // batch_size)
@@ -114,7 +114,7 @@ def all_batches_run_train(n_batches, data=None, labels=None):
     for b in xrange(n_batches):
 
         offset = b * batch_size
-        batch_data, batch_labels = image_reader.load_dataset("../imgs/", offset, offset + batch_size)
+        batch_data, batch_labels = image_reader.load_dataset("../imgs50k/", offset, offset + batch_size)
         # batch_data = data[offset: offset + batch_size, :]
         n_samples = batch_data.shape[0]
 

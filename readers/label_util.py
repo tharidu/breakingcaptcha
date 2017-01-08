@@ -1,6 +1,7 @@
 import numpy as np
+from readers import image_reader
 
-CHAR_VOCAB_SIZE = 36  # Each char in the word can either be a digit 0-9 or a letter a-z giving a total of 36 pssible characters.
+CHAR_VOCAB_SIZE = image_reader.NUM_CLASSES # Each char in the word can either be a digit 0-9 or a letter a-z giving a total of 36 pssible characters.
 WORD_SIZE =5
 
 
@@ -83,5 +84,5 @@ def compare_predictions(predictions,labels):
 
 if __name__ == '__main__':
     np.set_printoptions(threshold='nan')
-    print words_to_vec('abbc7')
-    print vec_to_word( words_to_vec('abbc7'))
+    print words_to_vec('12345')
+    print vec_to_word( words_to_vec('12345'))
