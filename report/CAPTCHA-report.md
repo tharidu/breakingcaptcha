@@ -34,12 +34,17 @@ The values are advertised and self-reported. We did not conduct any verification
 
 
 ### Learning based captcha breaking
-Captchas are based on an unsolved AI problem. However, with the progress of AI techniques and computing power, captchas can be recognized as shown by Goodfellow et al. in [1], Hong et al. in [2], Bursztein et al. in [3] and [7], and Stark et al. in [4] using deep learning techniques. Goodfellow et al. predict numbers from Goolge Street View images directly (without pre-processing) utilizing a convolutional neural network. They make use of  [DistBelief](https://research.google.com/pubs/pub40565.html) by Dean et al. to scale the learning to multiple computers and to avoid out of memory issues. Hong et al.
+Captchas are based on an unsolved AI problem. However, with the progress of AI techniques and computing power, sequences of characters or captchas can be recognized as shown by Goodfellow et al. in [1], Hong et al. in [2], Bursztein et al. in [3] and [7], and Stark et al. in [4] using deep learning techniques. Goodfellow et al. predict numbers from Goolge Street View images directly (without pre-processing) utilizing a CNN. They make use of  [DistBelief](https://research.google.com/pubs/pub40565.html) by Dean et al. to scale the learning to multiple computers and to avoid out of memory issues [1]. Hong et al. pre-process captchas to rotate them and segment the characters. Afterwards they apply a CNN with three convolutional layers and two fully connected layers [2]. Bursztein et al. use pre-processing, segmentation, and recognition techniques (based on KNN) and later on various CNNs to detect captchas from multiple websites including Baidu, Wikipedia, reCAPTCHA, and Yahoo [3],[7]. Stark et al. researched a way of detecting captchas with limited testing data. They use a technique called Active Learning to feed the network with new training data, that is ambiguous to improve the performance [4].
 
-The below table gives an overview of their reported best accuracies.
+The below table gives an overview of their reported accuracies.
 
 | Researcher | Dataset | Technique | Accuracy | Reference |
 |-----------:|--------:|----------:|---------:|----------:|
+| Goodfellow et al. | Google Street View image files | CNN with DistBelief | 96% | [1] |
+| Hong et al. | Microsoft captchas | Preprocessing, segementation and CNN | 96% | [2] |
+| Goodfellow et al. | Google Street View image files | CNN with DistBelief | 96% | [1] |
+| Goodfellow et al. | Google Street View image files | CNN with DistBelief | 96% | [1] |
+| Goodfellow et al. | Google Street View image files | CNN with DistBelief | 96% | [1] |
 
 ### Current state of captchas
 As part of
@@ -57,6 +62,8 @@ We are generating the datasets using a Java based captcha generator. We have gen
 - training: 50000 images; testing: 5000 images
 - training: 100000 images; testing: 10000 images
 - training: 500000 images; testing: 50000 images
+- - training: 1000000 images; testing: 100000 images
+- training: 5000000 images; testing: 500000 images
 
 Each dataset contains jpeg images containing a captcha with five characters. The characters are lowercase (a-z) or numbers (0-9). We used the fonts "Arial" and "Courier" with noise. An example of the created captchas is displayed below. Our intention was to mimic the captchas created by [Microsoft](https://courses.csail.mit.edu/6.857/2015/files/hong-lopezpineda-rajendran-recansens.pdf).
 
