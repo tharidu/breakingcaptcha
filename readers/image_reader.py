@@ -13,7 +13,7 @@ IMAGE_HEIGHT = 80
 CAPTCHA_LENGTH = 5
 
 # Global constants describing the captcha data set.
-NUM_CLASSES = 36
+NUM_CLASSES = 10
 NUM_EXAMPLES_PER_EPOCH_FOR_TRAIN = 1000
 NUM_EXAMPLES_PER_EPOCH_FOR_EVAL = 100
 training_folder = "../imgs/"
