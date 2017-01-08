@@ -1,0 +1,156 @@
+number of batches: 199
+sum of samples trained 49750
+loss after epoch 1 = 0.637820: 
+train accuracy after epoch 1 = 0.047831: 
+-----------------------------------
+
+sum of samples trained 49750
+loss after epoch 2 = 0.113207: 
+train accuracy after epoch 2 = 0.073230: 
+-----------------------------------
+
+sum of samples trained 49750
+loss after epoch 3 = 0.109082: 
+train accuracy after epoch 3 = 0.115031: 
+-----------------------------------
+
+sum of samples trained 49750
+loss after epoch 4 = 0.101801: 
+train accuracy after epoch 4 = 0.183819: 
+-----------------------------------
+
+sum of samples trained 49750
+loss after epoch 5 = 0.087612: 
+train accuracy after epoch 5 = 0.327128: 
+-----------------------------------
+
+sum of samples trained 49750
+loss after epoch 6 = 0.077983: 
+train accuracy after epoch 6 = 0.416555: 
+-----------------------------------
+
+sum of samples trained 49750
+loss after epoch 7 = 0.072418: 
+train accuracy after epoch 7 = 0.467867: 
+-----------------------------------
+
+sum of samples trained 49750
+loss after epoch 8 = 0.064306: 
+train accuracy after epoch 8 = 0.541033: 
+-----------------------------------
+
+sum of samples trained 49750
+loss after epoch 9 = 0.057185: 
+train accuracy after epoch 9 = 0.605423: 
+-----------------------------------
+
+sum of samples trained 49750
+loss after epoch 10 = 0.051347: 
+train accuracy after epoch 10 = 0.657664: 
+-----------------------------------
+
+done training
+True   | Predicted
+cdkg4  |cdkg4     
+g8mpd  |g8mpd     
+h76ap  |k76ap     
+dech6  |dech6     
+72p3w  |72p3w     
+yeadc  |yeadh     
+xagr2  |xag32     
+nbwpe  |nbwpe     
+d7726  |d7736     
+ge4ww  |gmwww     
+agwh8  |agwd6     
+bde28  |bde28     
+76ngg  |76wgg     
+3xdek  |3xdek     
+5mrnn  |5mrmm     
+8acdp  |8acbp     
+kg46m  |kg46m     
+xm7x3  |xw7k3     
+4w2p5  |4w3p5     
+f4eay  |f4aay     
+y3w7a  |y8w7a     
+gd2fw  |gd2hw     
+6k544  |6k544     
+fgxdg  |fyxcg     
+rgx33  |rgx23     
+n23rm  |n23mn     
+ar77g  |ar77g     
+ap28y  |ap23y     
+k7grh  |k7grf     
+ynxbd  |ymxcd     
+483h6  |463h6     
+x4gx3  |x4gx3     
+g6bg7  |g8bg7     
+d65y2  |d85y2     
+d8fmp  |d8fmp     
+5fxa6  |5fxc6     
+p2kcr  |p2kcn     
+d2yg8  |d2yg2     
+d438r  |d438f     
+warpm  |wampx     
+fh7yg  |fh7yg     
+wrkd2  |wxhx2     
+mh8eg  |e68eg     
+3pg5x  |3pg5w     
+4aegp  |4aegp     
+55f8g  |55fbg     
+fbycm  |fhycm     
+by5d5  |by5d5     
+k44m8  |m44w4     
+hhckr  |hhdkr     
+r2d3a  |r2d2c     
+6gp5c  |6gp5c     
+dd5r8  |dd5x8     
+k2fyn  |k2fye     
+eg8c7  |eg8k7     
+4dnwy  |4dmwp     
+pky38  |pky38     
+2w6an  |2w6aa     
+mdfx7  |mdfx7     
+676e2  |676e2     
+2akwf  |2akwa     
+7kr6r  |7kr6r     
+5wc4h  |5wc4k     
+ng37f  |ng37h     
+8ayhe  |8nyhe     
+mdcpb  |mxbpk     
+nmwfc  |nmwrh     
+6er5p  |6er5p     
+fcxad  |fcxcc     
+yx8ba  |yx8ka     
+mdf22  |mbd22     
+bk4xh  |bh4cn     
+kx4ry  |kx4ky     
+enaa7  |enaa7     
+ywkke  |ywkke     
+bdk6y  |bdk6y     
+8kcfx  |8kcfx     
+c5kkr  |c5kkn     
+8cd37  |8cd37     
+5encf  |5ercf     
+5e6ky  |5e6ky     
+8w6r6  |8w666     
+k7efh  |k7ef5     
+hkg2c  |bkg2n     
+cw8yh  |cw8yh     
+b2g3d  |b2g3d     
+4w6gp  |4m6gm     
+5p23r  |5p23n     
+cnepe  |cnepa     
+egf6x  |egf6x     
+665ra  |665rn     
+m2bh6  |m2dh6     
+ckrrh  |ckrrc     
+mcwdc  |mwxmd     
+k2acy  |k2acy     
+hdhhw  |hdhhw     
+wac63  |waa63     
+gnn2g  |gnn2g     
+bnx5p  |bnx5p     
+grh56  |grh56     
+printing correct predictions
+done testing
+Test Accuracy 0.816
