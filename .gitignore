@@ -151,3 +151,5 @@ ENV/
 /.idea/
 /data_gen/imgs/
 /data_gen/test_imgs/
+/imgs/
+/test_imgs/
