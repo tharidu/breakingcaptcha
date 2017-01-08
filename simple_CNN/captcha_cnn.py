@@ -99,8 +99,10 @@ correct_prediction = tf.equal(tf.argmax(pred, 2), tf.argmax(Ytrue, 2))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
 # initialize
+config = tf.ConfigProto()
+config.gpu_options.allocator_type = 'BFC'
 init = tf.initialize_all_variables()
-sess = tf.Session()
+sess = tf.Session(config=config)
 sess.run(init)
 
 n_classes = 36
