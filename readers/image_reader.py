@@ -17,7 +17,7 @@ NUM_CLASSES = 36
 NUM_EXAMPLES_PER_EPOCH_FOR_TRAIN = 1000
 NUM_EXAMPLES_PER_EPOCH_FOR_EVAL = 100
 training_folder = "../data_gen/imgs/"
-testing_folder = "../data_gen/test_imgs/"
+testing_folder = "../test_imgs50k/"
 
 
 def load_training_dataset():
