@@ -8,7 +8,7 @@ import time
 from readers import image_reader
 from readers import label_util
 
-train_X, train_Y = image_reader.load_training_dataset()
+# train_X, train_Y = image_reader.load_training_dataset()
 test_X, test_Y = image_reader.load_testing_dataset()
 
 X_input = tf.placeholder(tf.float32, [None, 216 * 128])
@@ -100,9 +100,9 @@ sess = tf.Session()
 sess.run(init)
 
 n_classes = 36
-batch_size = 100
+batch_size = 50
 n_epochs = 20
-n_batches_train = int(train_Y.shape[0] // batch_size)
+n_batches_train = int(image_reader.training_dataset_length() // batch_size)
 print "number of batches: %d" % (n_batches_train)
 
 
@@ -114,10 +114,11 @@ def all_batches_run_train(n_batches, data=None, labels=None):
     for b in xrange(n_batches):
 
         offset = b * batch_size
-        batch_data = data[offset: offset + batch_size, :]
+        batch_data, batch_labels = image_reader.load_dataset("../imgs/", offset, offset + batch_size)
+        # batch_data = data[offset: offset + batch_size, :]
         n_samples = batch_data.shape[0]
 
-        batch_labels = labels[offset: offset + batch_size]
+        # batch_labels = labels[offset: offset + batch_size]
         # batch_labels = (np.arange(n_classes) == batch_labels[:, None]).astype(np.float32)
         # print np.shape(batch_data)
         # print np.shape(batch_labels)
@@ -162,7 +163,8 @@ train_loss = []
 test_ac = []
 for e in xrange(n_epochs):
     start_time = time.time()
-    n_data = train_X.shape[0]
+    n_data = image_reader.training_dataset_length()
+    # n_data = train_X.shape[0]
     # print n_data
     perm = np.random.permutation(n_data)
     train_X = train_X[perm, :]
