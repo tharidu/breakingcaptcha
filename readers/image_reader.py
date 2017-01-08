@@ -16,8 +16,8 @@ CAPTCHA_LENGTH = 5
 NUM_CLASSES = 10
 NUM_EXAMPLES_PER_EPOCH_FOR_TRAIN = 1000
 NUM_EXAMPLES_PER_EPOCH_FOR_EVAL = 100
-training_folder = "../imgs/"
-testing_folder = "../test_imgs/"
+training_folder = "../imgs500k/"
+testing_folder = "../test_imgs1k/"
 
 
 def load_training_dataset():
