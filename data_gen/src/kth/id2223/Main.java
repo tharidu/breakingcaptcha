@@ -3,6 +3,7 @@ package kth.id2223;
 import nl.captcha.Captcha;
 import nl.captcha.backgrounds.FlatColorBackgroundProducer;
 import nl.captcha.gimpy.*;
+import nl.captcha.text.producer.NumbersAnswerProducer;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -16,7 +17,7 @@ import java.nio.file.Paths;
 public class Main extends JPanel {
     public void paint(Graphics g) {
         Captcha captcha = new Captcha.Builder(152, 80)
-                .addText(new CustomWordRenderer())
+                .addText(new NumbersAnswerProducer(), new CustomWordRenderer())
                 .gimp(new BlockGimpyRenderer())
                 .addBackground(new FlatColorBackgroundProducer(Color.WHITE))
 //                .addNoise(new CurvedLineNoiseProducer(Color.blue, 2))
@@ -34,8 +35,8 @@ public class Main extends JPanel {
 //        frame.setSize(300, 300);
 //        frame.setVisible(true);
 
-        generateDatasets("imgs", 1000);
-        generateDatasets("test_imgs", 50);
+        generateDatasets("imgs", 10000);
+        generateDatasets("test_imgs", 500);
     }
 
     public static void generateDatasets(String folder, long datasetSize) throws IOException {
@@ -45,7 +46,7 @@ public class Main extends JPanel {
 
         for (int i = 0; i < datasetSize; i++) {
             Captcha captcha = new Captcha.Builder(152, 80)
-                    .addText(new CustomWordRenderer())
+                    .addText(new NumbersAnswerProducer(), new CustomWordRenderer())
                     .gimp(new BlockGimpyRenderer())
                     .addBackground(new FlatColorBackgroundProducer(Color.WHITE))
                     .build();

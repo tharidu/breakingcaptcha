@@ -30,7 +30,7 @@ public class CustomWordRenderer implements WordRenderer {
     static {
         DEFAULT_COLORS.add(Color.BLACK);
         DEFAULT_FONTS.add(new Font("Arial", Font.BOLD, 40));
-        DEFAULT_FONTS.add(new Font("Courier", Font.BOLD, 40));
+//        DEFAULT_FONTS.add(new Font("Courier", Font.BOLD, 40));
     }
 
     private final List<Color> _colors = new ArrayList<Color>();
@@ -93,8 +93,8 @@ public class CustomWordRenderer implements WordRenderer {
             boolean rotate = false; //RAND.nextBoolean();
             boolean outline = false; //RAND.nextBoolean();
 
-            int x = xBaseline + RAND.nextInt(2);
-            int y = yBaseline + RAND.nextInt(10);
+            int x = xBaseline + 5; //RAND.nextInt(2);
+            int y = yBaseline; // + RAND.nextInt(10);
             double theta = (double) i / (double) (word.length() - 1) * Math.PI / 4;
 
             if (rotate && outline) {
@@ -109,7 +109,7 @@ public class CustomWordRenderer implements WordRenderer {
 
             int width = (int) gv.getVisualBounds().getWidth();
             xBaseline = xBaseline + width;
-            yBaseline -= RAND.nextInt(10);
+//            yBaseline -= RAND.nextInt(10);
             i++;
         }
     }
