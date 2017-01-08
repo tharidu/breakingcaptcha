@@ -170,15 +170,15 @@ for e in xrange(n_epochs):
     # train_X = train_X[perm, :]
     # train_Y = train_Y[perm]
     mean_loss_per_sample_train, accuracy_per_sample_train = all_batches_run_train(n_batches_train)
-    test_a = test_epochs(data=test_X, labels=test_Y)
+    #test_a = test_epochs(data=test_X, labels=test_Y)
     print "loss after epoch %d = %f: " % (i, mean_loss_per_sample_train)
     print "train accuracy after epoch %d = %f: " % (i, accuracy_per_sample_train)
-    print "test accuracy after epoch %d = %f: " % (i, test_a[0])
+    #print "test accuracy after epoch %d = %f: " % (i, test_a[0])
     print "-----------------------------------\n"
     i = i + 1
     train_ac.append(accuracy_per_sample_train)
     train_loss.append(mean_loss_per_sample_train)
-    test_ac.append(test_a[0])
+    #test_ac.append(test_a[0])
 
 
 
@@ -186,7 +186,7 @@ print('done training')
 
 plt.title("Training Accuracy over epochs")
 plt.plot(train_ac, label="Training Accuracy")
-plt.plot(test_ac, label="Test Accuracy")
+#plt.plot(test_ac, label="Test Accuracy")
 plt.xlabel("epoch")
 plt.legend(loc=4)
 plt.grid(True)

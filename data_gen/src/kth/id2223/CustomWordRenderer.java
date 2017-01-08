@@ -90,8 +90,10 @@ public class CustomWordRenderer implements WordRenderer {
             GlyphVector gv = font.createGlyphVector(frc, chars);
 
             // Randomly select what to render
-            boolean rotate = RAND.nextBoolean();
-            boolean outline = RAND.nextBoolean();
+//            boolean rotate = RAND.nextBoolean();
+            boolean rotate = false;
+//            boolean outline = RAND.nextBoolean();
+            boolean outline = false;
 
             int x = xBaseline + RAND.nextInt(2);
             int y = yBaseline + RAND.nextInt(10);
