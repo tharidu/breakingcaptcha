@@ -11,8 +11,8 @@ from readers import label_util
 # train_X, train_Y = image_reader.load_training_dataset()
 test_X, test_Y = image_reader.load_testing_dataset()
 
-X_input = tf.placeholder(tf.float32, [None, 152 * 80])
-X = tf.reshape(X_input, shape=[-1, 152, 80, 1])
+X_input = tf.placeholder(tf.float32, [None, 160 * 80])
+X = tf.reshape(X_input, shape=[-1, 160, 80, 1])
 Y_ = tf.placeholder(tf.float32, [None, 5 * image_reader.NUM_CLASSES])
 
 learning_rate = 0.01
@@ -68,18 +68,25 @@ Y3 = tf.nn.relu(create_conv_layer(Y2, W3, strides3, padding="SAME") + B3)
 Y3 = apply_max_pool(Y3, [1, 2, 2, 1], [1, 2, 2, 1])
 Y3 = tf.nn.dropout(Y3, keep_prob=keep_prob)
 
-# keep_prob = tf.placeholder(tf.float32)
-
-Y3 = tf.reshape(Y3, [-1, 19 * 10 * 128])
-
-W4 = create_fully_connected_weight([19 * 10 * 128, 1024])
-B4 = create_bias([1024])
-Y4 = tf.nn.relu(tf.matmul(Y3, W4) + B4)
+W4 = create_conv_weight(5, 5, 128, 128)
+B4 = create_bias([128])
+strides4 = create_strides(1, 1, 1, 1)
+Y4 = tf.nn.relu(create_conv_layer(Y3, W4, strides4, padding="SAME") + B4)
+Y4 = apply_max_pool(Y4, [1, 2, 2, 1], [1, 2, 2, 1])
 Y4 = tf.nn.dropout(Y4, keep_prob=keep_prob)
 
-W5 = create_fully_connected_weight([1024, 5 * image_reader.NUM_CLASSES])
-B5 = create_bias([5 * image_reader.NUM_CLASSES])
-Ylogits = tf.matmul(Y4, W5) + B5
+# keep_prob = tf.placeholder(tf.float32)
+
+Y4 = tf.reshape(Y4, [-1, 10 * 5 * 128])
+
+W5 = create_fully_connected_weight([10 * 5 * 128, 1024])
+B5 = create_bias([1024])
+Y5 = tf.nn.relu(tf.matmul(Y4, W5) + B5)
+Y5 = tf.nn.dropout(Y5, keep_prob=keep_prob)
+
+W6 = create_fully_connected_weight([1024, 5 * image_reader.NUM_CLASSES])
+B6 = create_bias([5 * image_reader.NUM_CLASSES])
+Ylogits = tf.matmul(Y5, W6) + B6
 
 cross_entropy = tf.nn.sigmoid_cross_entropy_with_logits(Ylogits, Y_)
 loss = tf.reduce_mean(cross_entropy)
@@ -114,7 +121,7 @@ def all_batches_run_train(n_batches, data=None, labels=None):
     for b in xrange(n_batches):
 
         offset = b * batch_size
-        batch_data, batch_labels = image_reader.load_dataset("../imgs50k/", offset, offset + batch_size)
+        batch_data, batch_labels = image_reader.load_dataset("../imgs/", offset, offset + batch_size)
         # batch_data = data[offset: offset + batch_size, :]
         n_samples = batch_data.shape[0]
 
@@ -123,7 +130,7 @@ def all_batches_run_train(n_batches, data=None, labels=None):
         # print np.shape(batch_data)
         # print np.shape(batch_labels)
 
-        feed_dict = {X_input: batch_data, Y_: batch_labels, keep_prob: 0.75}
+        feed_dict = {X_input: batch_data, Y_: batch_labels, keep_prob: 0.50}
         _, loss_value, a = sess.run([train_step, loss, accuracy], feed_dict=feed_dict)
         sum_all_batches_loss += loss_value * n_samples
         sum_all_batches_acc += a * n_samples

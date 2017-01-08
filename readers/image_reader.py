@@ -8,7 +8,7 @@ from scipy.misc import imread
 from readers import label_util
 import tensorflow as tf
 
-IMAGE_WIDTH = 152
+IMAGE_WIDTH = 160
 IMAGE_HEIGHT = 80
 CAPTCHA_LENGTH = 5
 
@@ -16,8 +16,8 @@ CAPTCHA_LENGTH = 5
 NUM_CLASSES = 10
 NUM_EXAMPLES_PER_EPOCH_FOR_TRAIN = 1000
 NUM_EXAMPLES_PER_EPOCH_FOR_EVAL = 100
-training_folder = "../imgs50k/"
-testing_folder = "../test_imgs1k/"
+training_folder = "../imgs/"
+testing_folder = "../test_imgs/"
 
 
 def load_training_dataset():
