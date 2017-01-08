@@ -15,7 +15,7 @@ import java.nio.file.Paths;
 
 public class Main extends JPanel {
     public void paint(Graphics g) {
-        Captcha captcha = new Captcha.Builder(216, 128)
+        Captcha captcha = new Captcha.Builder(152, 80)
                 .addText(new CustomWordRenderer())
                 .gimp(new BlockGimpyRenderer())
                 .addBackground(new FlatColorBackgroundProducer(Color.WHITE))
@@ -35,7 +35,7 @@ public class Main extends JPanel {
 //        frame.setVisible(true);
 
         generateDatasets("imgs", 1000);
-        generateDatasets("test_imgs", 100);
+        generateDatasets("test_imgs", 50);
     }
 
     public static void generateDatasets(String folder, long datasetSize) throws IOException {
@@ -44,7 +44,7 @@ public class Main extends JPanel {
         Files.createDirectories(Paths.get(folder));
 
         for (int i = 0; i < datasetSize; i++) {
-            Captcha captcha = new Captcha.Builder(216, 128)
+            Captcha captcha = new Captcha.Builder(152, 80)
                     .addText(new CustomWordRenderer())
                     .gimp(new BlockGimpyRenderer())
                     .addBackground(new FlatColorBackgroundProducer(Color.WHITE))

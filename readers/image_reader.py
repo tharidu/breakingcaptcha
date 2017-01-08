@@ -8,8 +8,8 @@ from scipy.misc import imread
 from readers import label_util
 import tensorflow as tf
 
-IMAGE_WIDTH = 216
-IMAGE_HEIGHT = 128
+IMAGE_WIDTH = 152
+IMAGE_HEIGHT = 80
 CAPTCHA_LENGTH = 5
 
 # Global constants describing the captcha data set.

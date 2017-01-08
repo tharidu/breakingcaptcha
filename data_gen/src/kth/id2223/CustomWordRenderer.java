@@ -29,8 +29,8 @@ public class CustomWordRenderer implements WordRenderer {
 
     static {
         DEFAULT_COLORS.add(Color.BLACK);
-        DEFAULT_FONTS.add(new Font("Arial", Font.BOLD, 50));
-        DEFAULT_FONTS.add(new Font("Courier", Font.BOLD, 50));
+        DEFAULT_FONTS.add(new Font("Arial", Font.BOLD, 40));
+        DEFAULT_FONTS.add(new Font("Courier", Font.BOLD, 40));
     }
 
     private final List<Color> _colors = new ArrayList<Color>();
@@ -90,8 +90,8 @@ public class CustomWordRenderer implements WordRenderer {
             GlyphVector gv = font.createGlyphVector(frc, chars);
 
             // Randomly select what to render
-            boolean rotate = RAND.nextBoolean();
-            boolean outline = RAND.nextBoolean();
+            boolean rotate = false; //RAND.nextBoolean();
+            boolean outline = false; //RAND.nextBoolean();
 
             int x = xBaseline + RAND.nextInt(2);
             int y = yBaseline + RAND.nextInt(10);

@@ -11,8 +11,8 @@ from readers import label_util
 # train_X, train_Y = image_reader.load_training_dataset()
 test_X, test_Y = image_reader.load_testing_dataset()
 
-X_input = tf.placeholder(tf.float32, [None, 216 * 128])
-X = tf.reshape(X_input, shape=[-1, 216, 128, 1])
+X_input = tf.placeholder(tf.float32, [None, 152 * 80])
+X = tf.reshape(X_input, shape=[-1, 152, 80, 1])
 Y_ = tf.placeholder(tf.float32, [None, 5 * 36])
 
 learning_rate = 0.1
@@ -47,21 +47,21 @@ def apply_max_pool(x, ksize, strides, padding='SAME'):
 
 keep_prob = tf.placeholder(tf.float32)
 
-W1 = create_conv_weight(3, 3, 1, 32)
+W1 = create_conv_weight(5, 5, 1, 32)
 B1 = create_bias([32])
 strides1 = create_strides(1, 1, 1, 1)
 Y1 = tf.nn.relu(create_conv_layer(X, W1, strides1, padding="SAME") + B1)
 Y1 = apply_max_pool(Y1, [1, 2, 2, 1], [1, 2, 2, 1])
 Y1 = tf.nn.dropout(Y1, keep_prob=keep_prob)
 
-W2 = create_conv_weight(3, 3, 32, 64)
+W2 = create_conv_weight(5, 5, 32, 64)
 B2 = create_bias([64])
 strides2 = create_strides(1, 1, 1, 1)
 Y2 = tf.nn.relu(create_conv_layer(Y1, W2, strides2, padding="SAME") + B2)
 Y2 = apply_max_pool(Y2, [1, 2, 2, 1], [1, 2, 2, 1])
 Y2 = tf.nn.dropout(Y2, keep_prob=keep_prob)
 
-W3 = create_conv_weight(3, 3, 64, 64)
+W3 = create_conv_weight(5, 5, 64, 64)
 B3 = create_bias([64])
 strides3 = create_strides(1, 1, 1, 1)
 Y3 = tf.nn.relu(create_conv_layer(Y2, W3, strides3, padding="SAME") + B3)
@@ -70,9 +70,9 @@ Y3 = tf.nn.dropout(Y3, keep_prob=keep_prob)
 
 # keep_prob = tf.placeholder(tf.float32)
 
-Y3 = tf.reshape(Y3, [-1, 27 * 16 * 64])
+Y3 = tf.reshape(Y3, [-1, 19 * 10 * 64])
 
-W4 = create_fully_connected_weight([27 * 16 * 64, 1024])
+W4 = create_fully_connected_weight([19 * 10 * 64, 1024])
 B4 = create_bias([1024])
 Y4 = tf.nn.relu(tf.matmul(Y3, W4) + B4)
 Y4 = tf.nn.dropout(Y4, keep_prob=keep_prob)
@@ -170,15 +170,15 @@ for e in xrange(n_epochs):
     # train_X = train_X[perm, :]
     # train_Y = train_Y[perm]
     mean_loss_per_sample_train, accuracy_per_sample_train = all_batches_run_train(n_batches_train)
-    test_a = test_epochs(data=test_X, labels=test_Y)
+    #test_a = test_epochs(data=test_X, labels=test_Y)
     print "loss after epoch %d = %f: " % (i, mean_loss_per_sample_train)
     print "train accuracy after epoch %d = %f: " % (i, accuracy_per_sample_train)
-    print "test accuracy after epoch %d = %f: " % (i, test_a[0])
+    #print "test accuracy after epoch %d = %f: " % (i, test_a[0])
     print "-----------------------------------\n"
     i = i + 1
     train_ac.append(accuracy_per_sample_train)
     train_loss.append(mean_loss_per_sample_train)
-    test_ac.append(test_a[0])
+#    test_ac.append(test_a[0])
 
 
 
@@ -186,7 +186,7 @@ print('done training')
 
 plt.title("Training Accuracy over epochs")
 plt.plot(train_ac, label="Training Accuracy")
-plt.plot(test_ac, label="Test Accuracy")
+#plt.plot(test_ac, label="Test Accuracy")
 plt.xlabel("epoch")
 plt.legend(loc=4)
 plt.grid(True)
