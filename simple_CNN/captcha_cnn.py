@@ -15,7 +15,7 @@ X_input = tf.placeholder(tf.float32, [None, 152 * 80])
 X = tf.reshape(X_input, shape=[-1, 152, 80, 1])
 Y_ = tf.placeholder(tf.float32, [None, 5 * 36])
 
-learning_rate = 0.1
+learning_rate = 0.01
 
 def create_fully_connected_weight(shape):
     return tf.Variable(tf.truncated_normal(shape, stddev=0.1))
@@ -114,7 +114,7 @@ def all_batches_run_train(n_batches, data=None, labels=None):
     for b in xrange(n_batches):
 
         offset = b * batch_size
-        batch_data, batch_labels = image_reader.load_dataset("../imgs/", offset, offset + batch_size)
+        batch_data, batch_labels = image_reader.load_dataset("../imgs10k/", offset, offset + batch_size)
         # batch_data = data[offset: offset + batch_size, :]
         n_samples = batch_data.shape[0]
 
