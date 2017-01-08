@@ -6,6 +6,7 @@ import os
 import numpy as np
 from scipy.misc import imread
 from readers import label_util
+import tensorflow as tf
 
 IMAGE_WIDTH = 216
 IMAGE_HEIGHT = 128
@@ -24,17 +25,20 @@ def load_training_dataset():
 
 
 def load_testing_dataset():
-    return load_dataset(testing_folder)
+    no_files = len(os.listdir(testing_folder))
+    return load_dataset(testing_folder, 0, no_files)
+
+def training_dataset_length():
+    return len(os.listdir(training_folder))
 
 
-def load_dataset(folder):
+def load_dataset(folder, fromPos, toPos):
     file_list = os.listdir(folder)
-    no_files = len(file_list)
 
-    X = np.zeros([no_files, IMAGE_HEIGHT * IMAGE_WIDTH])
-    Y = np.zeros([no_files, 5 * NUM_CLASSES])
+    X = np.zeros([toPos - fromPos, IMAGE_HEIGHT * IMAGE_WIDTH])
+    Y = np.zeros([toPos - fromPos, 5 * NUM_CLASSES])
 
-    for i, filename in enumerate(file_list):
+    for i, filename in enumerate(file_list[fromPos:toPos]):
         path = folder + filename
         img = imread(path)
 
@@ -48,3 +52,14 @@ def load_dataset(folder):
         Y[i, :] = label_util.words_to_vec(captcha_text)
 
     return X, Y
+
+
+def tf_load_dataset(folder):
+    filename_queue = tf.train.string_input_producer(
+        tf.train.match_filenames_once(folder + "/*.jpg"))
+
+    image_reader = tf.WholeFileReader()
+    _, image_file = image_reader.read(filename_queue)
+    image = tf.image.decode_jpeg(image_file)
+
+    Y = np.zeros([len(filename_queue), 5 * NUM_CLASSES])
