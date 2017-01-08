@@ -108,7 +108,7 @@ sess.run(init)
 
 n_classes = image_reader.NUM_CLASSES
 batch_size = 100
-n_epochs = 20
+n_epochs = 50
 n_batches_train = int(image_reader.training_dataset_length() // batch_size)
 print "number of batches: %d" % (n_batches_train)
 
