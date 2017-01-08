@@ -40,13 +40,9 @@ def load_dataset(folder):
 
     for i, filename in enumerate(file_list):
         path = folder + filename
-        img = imread(path)
+        img = imread(path, flatten=True)
 
         captcha_text = filename[0:CAPTCHA_LENGTH]
-
-        # Convert to greyscale
-        if len(img.shape) > 2:
-            img = np.mean(img, -1)
 
         X[i, :] = img.flatten()
         Y[i, :] = label_util.words_to_vec(captcha_text)
