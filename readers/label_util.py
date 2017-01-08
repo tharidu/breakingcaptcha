@@ -1,7 +1,7 @@
 import numpy as np
-from readers import image_reader
 
-CHAR_VOCAB_SIZE = image_reader.NUM_CLASSES # Each char in the word can either be a digit 0-9 or a letter a-z giving a total of 36 pssible characters.
+
+CHAR_VOCAB_SIZE = 10 # Each char in the word can either be a digit 0-9 or a letter a-z giving a total of 36 pssible characters.
 WORD_SIZE =5
 
 
