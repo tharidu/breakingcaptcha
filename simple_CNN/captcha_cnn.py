@@ -167,10 +167,9 @@ for e in xrange(n_epochs):
     # n_data = train_X.shape[0]
     # print n_data
     perm = np.random.permutation(n_data)
-    train_X = train_X[perm, :]
-    train_Y = train_Y[perm]
-    mean_loss_per_sample_train, accuracy_per_sample_train = all_batches_run_train(n_batches_train, data=train_X,
-                                                                                  labels=train_Y)
+    # train_X = train_X[perm, :]
+    # train_Y = train_Y[perm]
+    mean_loss_per_sample_train, accuracy_per_sample_train = all_batches_run_train(n_batches_train)
     test_a = test_epochs(data=test_X, labels=test_Y)
     print "loss after epoch %d = %f: " % (i, mean_loss_per_sample_train)
     print "train accuracy after epoch %d = %f: " % (i, accuracy_per_sample_train)
