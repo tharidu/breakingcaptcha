@@ -3,10 +3,10 @@ from __future__ import division
 import tensorflow as tf
 # to visualize the resutls
 import matplotlib.pyplot as plt
-import os
 import numpy as np
 import time
 from readers import image_reader
+from readers import label_util
 
 train_X, train_Y = image_reader.load_training_dataset()
 test_X, test_Y = image_reader.load_testing_dataset()
@@ -16,10 +16,6 @@ X = tf.reshape(X_input, shape=[-1, 216, 128, 1])
 Y_ = tf.placeholder(tf.float32, [None, 5 * 36])
 
 learning_rate = 0.1
-
-training_iters = 100  # 128*5000
-display_step = 100
-
 
 def create_fully_connected_weight(shape):
     return tf.Variable(tf.truncated_normal(shape, stddev=0.1))
@@ -91,9 +87,9 @@ loss = tf.reduce_mean(cross_entropy)
 train_step = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(loss)
 
 # prediction
-pred = tf.reshape(Ylogits, [-1, 5, 36])
+predictions = tf.reshape(Ylogits, [-1, 5, 36])
 Ytrue = tf.reshape(Y_, [-1, 5, 36])
-correct_prediction = tf.equal(tf.argmax(pred, 2), tf.argmax(Ytrue, 2))
+correct_prediction = tf.equal(tf.argmax(predictions, 2), tf.argmax(Ytrue, 2))
 
 # Define the accuracy
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
@@ -125,6 +121,7 @@ def all_batches_run_train(n_batches, data=None, labels=None):
         # batch_labels = (np.arange(n_classes) == batch_labels[:, None]).astype(np.float32)
         # print np.shape(batch_data)
         # print np.shape(batch_labels)
+
         feed_dict = {X_input: batch_data, Y_: batch_labels, keep_prob: 0.75}
         _, loss_value, a = sess.run([train_step, loss, accuracy], feed_dict=feed_dict)
         sum_all_batches_loss += loss_value * n_samples
@@ -132,18 +129,31 @@ def all_batches_run_train(n_batches, data=None, labels=None):
         sum_n_samples += n_samples
         if (n_samples != batch_size):
             print('n_samples =%d' % n_samples)
+
     print "sum of samples trained %d" % (sum_n_samples)
     return (sum_all_batches_loss / sum_n_samples, sum_all_batches_acc / sum_n_samples)
 
 
-def run_test(data=None, labels=None):
+def test_epochs(data=None, labels=None):
     assert (data.shape[0] == labels.shape[0])
-    batch_size_test = 10000
     # labels = (np.arange(n_classes) == labels[:, None]).astype(np.float32)
     feed_dict = {X_input: data, Y_: labels, keep_prob: 1}
     test_a = sess.run([accuracy], feed_dict=feed_dict)
     return test_a
 
+
+
+
+def test_and_evaluate(data=None, labels=None):
+    assert (data.shape[0] == labels.shape[0])
+    feed_dict = {X_input: data, Y_: labels, keep_prob: 1}
+    test_results = sess.run([predictions,correct_prediction,accuracy], feed_dict=feed_dict)
+    test_preds = test_results[0]
+    label_util.compare_predictions(test_results[0],labels)
+    print "printing correct predictions"
+    print  test_results[1]
+    #print test_results[1].shape
+    return test_results
 
 i = 1
 
@@ -159,15 +169,17 @@ for e in xrange(n_epochs):
     train_Y = train_Y[perm]
     mean_loss_per_sample_train, accuracy_per_sample_train = all_batches_run_train(n_batches_train, data=train_X,
                                                                                   labels=train_Y)
-    test_a = run_test(data=test_X, labels=test_Y)
+    test_a = test_epochs(data=test_X, labels=test_Y)
     print "loss after epoch %d = %f: " % (i, mean_loss_per_sample_train)
     print "train accuracy after epoch %d = %f: " % (i, accuracy_per_sample_train)
     print "test accuracy after epoch %d = %f: " % (i, test_a[0])
-
+    print "-----------------------------------\n"
     i = i + 1
     train_ac.append(accuracy_per_sample_train)
     train_loss.append(mean_loss_per_sample_train)
     test_ac.append(test_a[0])
+
+
 
 print('done training')
 
@@ -185,6 +197,8 @@ plt.xlabel("epoch")
 plt.grid(True)
 plt.show()
 
-test_a = run_test(data=test_X, labels=test_Y)
+test_results = test_and_evaluate(data=test_X, labels=test_Y)
+
 print('done testing')
-print("Testing Accuracy " + str(test_a[0]))
+print("Test Accuracy " + str(test_results[2]))
+

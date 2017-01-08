@@ -22,10 +22,14 @@ testing_folder = "../data_gen/test_imgs/"
 def load_training_dataset():
     return load_dataset(training_folder)
 
-
 def load_testing_dataset():
     return load_dataset(testing_folder)
 
+def normalize_data(X):
+    x_mean = X.mean(axis=0)
+    x_std = X.std(axis=0)
+    X = (X - x_mean) / (x_std + 0.00001)
+    return X
 
 def load_dataset(folder):
     file_list = os.listdir(folder)
@@ -47,4 +51,5 @@ def load_dataset(folder):
         X[i, :] = img.flatten()
         Y[i, :] = label_util.words_to_vec(captcha_text)
 
+    X = normalize_data(X)
     return X, Y

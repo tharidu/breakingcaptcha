@@ -1,7 +1,7 @@
 import numpy as np
 
 CHAR_VOCAB_SIZE = 36  # Each char in the word can either be a digit 0-9 or a letter a-z giving a total of 36 pssible characters.
-
+WORD_SIZE =5
 
 
 def char_to_vec_pos(char):
@@ -57,6 +57,28 @@ def vec_to_word(vector):
         word.append(chr(char_code))
 
     return "".join(word)
+
+
+def prediction_to_word(prediction_vector):
+    """
+    function to convert a prediction vector to captcha word
+    :param prediction_vector: a [WORD_SIZE,CHAR_VOCAB_SIZE] np array of predictions
+    :return: the string representing the word
+    """
+    b = np.zeros_like(prediction_vector)
+    b[np.arange(len(prediction_vector)), prediction_vector.argmax(1)] = 1
+    word_vector = np.reshape(b,WORD_SIZE*CHAR_VOCAB_SIZE)
+    word = vec_to_word(word_vector)
+    return word
+
+def compare_predictions(predictions,labels):
+    assert len(predictions == len(labels))
+    print "True   | Predicted"
+    for i,prediction in enumerate(predictions):
+        label = labels[i]
+        predicted_word = prediction_to_word(prediction)
+        true_word = vec_to_word(label)
+        print "{:7s}|{:10s}".format(true_word,predicted_word)
 
 
 if __name__ == '__main__':
