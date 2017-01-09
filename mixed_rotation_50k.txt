@@ -1,0 +1,556 @@
+number of batches: 199
+sum of samples trained 49750
+loss after epoch 1 = 0.753768: 
+train accuracy after epoch 1 = 0.042846: 
+-----------------------------------
+
+sum of samples trained 49750
+loss after epoch 2 = 0.116432: 
+train accuracy after epoch 2 = 0.043827: 
+-----------------------------------
+
+sum of samples trained 49750
+loss after epoch 3 = 0.115959: 
+train accuracy after epoch 3 = 0.042842: 
+-----------------------------------
+
+sum of samples trained 49750
+loss after epoch 4 = 0.115747: 
+train accuracy after epoch 4 = 0.043554: 
+-----------------------------------
+
+sum of samples trained 49750
+loss after epoch 5 = 0.115563: 
+train accuracy after epoch 5 = 0.044052: 
+-----------------------------------
+
+sum of samples trained 49750
+loss after epoch 6 = 0.115442: 
+train accuracy after epoch 6 = 0.042874: 
+-----------------------------------
+
+sum of samples trained 49750
+loss after epoch 7 = 0.115331: 
+train accuracy after epoch 7 = 0.043204: 
+-----------------------------------
+
+sum of samples trained 49750
+loss after epoch 8 = 0.115208: 
+train accuracy after epoch 8 = 0.042770: 
+-----------------------------------
+
+sum of samples trained 49750
+loss after epoch 9 = 0.115078: 
+train accuracy after epoch 9 = 0.043839: 
+-----------------------------------
+
+sum of samples trained 49750
+loss after epoch 10 = 0.114947: 
+train accuracy after epoch 10 = 0.043506: 
+-----------------------------------
+
+done training
+True   | Predicted
+bhx6m  |eaae7     
+2y2bh  |eaae7     
+3kxxx  |eaae7     
+gw8me  |eaae7     
+c3yy7  |eaae7     
+aerpn  |eaae7     
+4rg22  |eaae7     
+aha4b  |eaae7     
+434r4  |eaae7     
+dxn4p  |eaae7     
+kee5f  |eaae7     
+6hepb  |eaae7     
+bykfm  |eaae7     
+pmkke  |eaae7     
+6cxm3  |eaae7     
+58h2b  |eaae7     
+b7rdd  |eaae7     
+hpman  |eaae7     
+7k735  |eaae7     
+w56p8  |eaae7     
+c4a3y  |eaae7     
+a825c  |eaae7     
+a3hdm  |eaae7     
+f86df  |eaae7     
+yfp38  |eaae7     
+gw3en  |eaae7     
+ffakx  |eaae7     
+xykb5  |eaae7     
+nne45  |eaae7     
+fmpan  |eaae7     
+34myw  |eaae7     
+6an8c  |eaae7     
+hmrw5  |eaae7     
+xeyb7  |eaae7     
+a6b37  |eaae7     
+mb27g  |eaae7     
+f42px  |eaae7     
+f6a6n  |eaae7     
+y35an  |eaae7     
+bnwpd  |eaae7     
+8rerk  |eaae7     
+drexn  |eaae7     
+kyayr  |eaae7     
+hghxw  |eaae7     
+hd4nb  |eaae7     
+6n7hf  |eaae7     
+x6e5e  |eaae7     
+7mmmc  |eaae7     
+733h7  |eaae7     
+xf2g6  |eaae7     
+cx8ne  |eaae7     
+gcd6h  |eaae7     
+fkhya  |eaae7     
+eg58h  |eaae7     
+2neme  |eaae7     
+fw75g  |eaae7     
+b44f2  |eaae7     
+mbh5e  |eaae7     
+ghwb6  |eaae7     
+arr7h  |eaae7     
+3464y  |eaae7     
+m3y7a  |eaae7     
+7g44w  |eaae7     
+y36a8  |eaae7     
+hck2p  |eaae7     
+y4hyc  |eaae7     
+46x56  |eaae7     
+yg5rx  |eaae7     
+mx234  |eaae7     
+kcege  |eaae7     
+bh2dg  |eaae7     
+577m5  |eaae7     
+pee8h  |eaae7     
+6c6hw  |eaae7     
+66xk7  |eaae7     
+aan5m  |eaae7     
+a7exd  |eaae7     
+bce8n  |eaae7     
+dg25g  |eaae7     
+5fcrm  |eaae7     
+8f5ch  |eaae7     
+e7xem  |eaae7     
+r2kgd  |eaae7     
+fy24w  |eaae7     
+bchh8  |eaae7     
+hd2ww  |eaae7     
+4wxmf  |eaae7     
+27e2c  |eaae7     
+n4y3e  |eaae7     
+mac54  |eaae7     
+xdyx7  |eaae7     
+3e366  |eaae7     
+h8ngr  |eaae7     
+pbhge  |eaae7     
+fdbfg  |eaae7     
+ybpdc  |eaae7     
+m5x5h  |eaae7     
+63cd8  |eaae7     
+gmfer  |eaae7     
+prxp6  |eaae7     
+38d7x  |eaae7     
+3x46h  |eaae7     
+r5rn7  |eaae7     
+8xc27  |eaae7     
+db4ab  |eaae7     
+cwnf4  |eaae7     
+rxmfd  |eaae7     
+5ygx7  |eaae7     
+8e3cb  |eaae7     
+w54yf  |eaae7     
+fwxm6  |eaae7     
+r485x  |eaae7     
+a7fa4  |eaae7     
+7k2x8  |eaae7     
+bg5mm  |eaae7     
+bx88d  |eaae7     
+4y5y4  |eaae7     
+xp7cg  |eaae7     
+pdr5n  |eaae7     
+yr5yp  |eaae7     
+8bpwn  |eaae7     
+b5k5p  |eaae7     
+dyxf5  |eaae7     
+4rdr4  |eaae7     
+5223e  |eaae7     
+3myhp  |eaae7     
+gr64a  |eaae7     
+fh8gn  |eaae7     
+4m6hp  |eaae7     
+kchaw  |eaae7     
+8y5hm  |eaae7     
+5gca2  |eaae7     
+b8k73  |eaae7     
+xm28n  |eaae7     
+5c864  |eaae7     
+gmkcr  |eaae7     
+xdweh  |eaae7     
+nd4ga  |eaae7     
+bhed6  |eaae7     
+6ybf2  |eaae7     
+r832e  |eaae7     
+747yb  |eaae7     
+amya3  |eaae7     
+6r7er  |eaae7     
+dwk8n  |eaae7     
+384ma  |eaae7     
+5hm6p  |eaae7     
+f77fx  |eaae7     
+y488h  |eaae7     
+kd8ar  |eaae7     
+x7wwn  |eaae7     
+hxmw8  |eaae7     
+a4k83  |eaae7     
+kh5hy  |eaae7     
+7y7wa  |eaae7     
+6f8ra  |eaae7     
+n8dr6  |eaae7     
+p2ywy  |eaae7     
+xyhre  |eaae7     
+eh35e  |eaae7     
+gdfgw  |eaae7     
+48meh  |eaae7     
+gd58p  |eaae7     
+ypfgm  |eaae7     
+cwnk5  |eaae7     
+nyhxr  |eaae7     
+rmg36  |eaae7     
+cpkn4  |eaae7     
+4cwxr  |eaae7     
+5y687  |eaae7     
+b6p88  |eaae7     
+danxf  |eaae7     
+h2m8x  |eaae7     
+6bwr3  |eaae7     
+f78n3  |eaae7     
+4a35k  |eaae7     
+akd4d  |eaae7     
+4kh3m  |eaae7     
+xxnhn  |eaae7     
+2xmf5  |eaae7     
+caf2f  |eaae7     
+8eheh  |eaae7     
+wx8wc  |eaae7     
+amgrw  |eaae7     
+mb78e  |eaae7     
+4rww6  |eaae7     
+6wwce  |eaae7     
+43ake  |eaae7     
+nxcc6  |eaae7     
+27hea  |eaae7     
+27nbe  |eaae7     
+kdp55  |eaae7     
+mxrdf  |eaae7     
+pfb8m  |eaae7     
+xkdx4  |eaae7     
+7n8wh  |eaae7     
+48bgx  |eaae7     
+8gmgx  |eaae7     
+r572h  |eaae7     
+ebwkr  |eaae7     
+r7835  |eaae7     
+an4y2  |eaae7     
+xnghc  |eaae7     
+krbxe  |eaae7     
+d2hdr  |eaae7     
+bc3kb  |eaae7     
+er2mc  |eaae7     
+r8yrw  |eaae7     
+5ee3k  |eaae7     
+mg7hk  |eaae7     
+mncn6  |eaae7     
+wey5f  |eaae7     
+wy72y  |eaae7     
+x3hh8  |eaae7     
+hby6e  |eaae7     
+ba58f  |eaae7     
+y3n8m  |eaae7     
+ahe87  |eaae7     
+nay3r  |eaae7     
+xkn8b  |eaae7     
+53dbc  |eaae7     
+ddy74  |eaae7     
+c75y4  |eaae7     
+8bxn3  |eaae7     
+kw8ec  |eaae7     
+ebkb8  |eaae7     
+6pmew  |eaae7     
+e56fy  |eaae7     
+g4akx  |eaae7     
+ga2cw  |eaae7     
+w66f3  |eaae7     
+7cap4  |eaae7     
+3ahxb  |eaae7     
+r2r7n  |eaae7     
+pkbdk  |eaae7     
+3erfb  |eaae7     
+b8ccf  |eaae7     
+nmmn8  |eaae7     
+5y353  |eaae7     
+yghm3  |eaae7     
+pa5yb  |eaae7     
+nknww  |eaae7     
+yr5wb  |eaae7     
+4grbn  |eaae7     
+xwweb  |eaae7     
+bwebf  |eaae7     
+753y4  |eaae7     
+dc3am  |eaae7     
+em3ga  |eaae7     
+855ed  |eaae7     
+g5d43  |eaae7     
+n5xcc  |eaae7     
+7fy2c  |eaae7     
+fmdgf  |eaae7     
+pm7py  |eaae7     
+2ngrn  |eaae7     
+ep7r3  |eaae7     
+p58br  |eaae7     
+mr384  |eaae7     
+6f8c6  |eaae7     
+748h7  |eaae7     
+7mfdd  |eaae7     
+ha6fc  |eaae7     
+bb3h4  |eaae7     
+3ycp7  |eaae7     
+kpmca  |eaae7     
+g7mcn  |eaae7     
+fayec  |eaae7     
+bmped  |eaae7     
+4amwm  |eaae7     
+n6fdy  |eaae7     
+bd3cx  |eaae7     
+be752  |eaae7     
+5e2an  |eaae7     
+axk4y  |eaae7     
+ffwpy  |eaae7     
+wyxpc  |eaae7     
+dn3mw  |eaae7     
+5hm68  |eaae7     
+r4mx3  |eaae7     
+3crkd  |eaae7     
+dnr5p  |eaae7     
+yeg2d  |eaae7     
+hay3c  |eaae7     
+c65y4  |eaae7     
+fxnkk  |eaae7     
+2k5pg  |eaae7     
+2nwaw  |eaae7     
+wd7w3  |eaae7     
+f5d3e  |eaae7     
+mmr2p  |eaae7     
+xm5eh  |eaae7     
+cry7r  |eaae7     
+56hcb  |eaae7     
+rnped  |eaae7     
+be5ag  |eaae7     
+ypxhx  |eaae7     
+bhk8y  |eaae7     
+g52pn  |eaae7     
+5x8c6  |eaae7     
+fanf3  |eaae7     
+6yx74  |eaae7     
+bcne5  |eaae7     
+pe3wk  |eaae7     
+fw3ap  |eaae7     
+73wec  |eaae7     
+8gm53  |eaae7     
+aamkf  |eaae7     
+4x4x3  |eaae7     
+hrndb  |eaae7     
+ekxfd  |eaae7     
+fg6gr  |eaae7     
+kmdw6  |eaae7     
+ac2xy  |eaae7     
+57bmc  |eaae7     
+6r3fe  |eaae7     
+4yedn  |eaae7     
+fw8nk  |eaae7     
+encxr  |eaae7     
+8r554  |eaae7     
+d7whw  |eaae7     
+epe5d  |eaae7     
+kcme7  |eaae7     
+npx4d  |eaae7     
+wkc43  |eaae7     
+4ek7e  |eaae7     
+r4ydk  |eaae7     
+ahcpc  |eaae7     
+2ybhg  |eaae7     
+663hp  |eaae7     
+xg7wn  |eaae7     
+k5p37  |eaae7     
+f5rec  |eaae7     
+x6768  |eaae7     
+gd64e  |eaae7     
+bk2gb  |eaae7     
+6drh3  |eaae7     
+6c836  |eaae7     
+r4842  |eaae7     
+a4xf4  |eaae7     
+3m3xd  |eaae7     
+yphhh  |eaae7     
+yk8dh  |eaae7     
+7p5hm  |eaae7     
+hab44  |eaae7     
+r3bhd  |eaae7     
+bnbhe  |eaae7     
+emr5a  |eaae7     
+pgwk8  |eaae7     
+ng64d  |eaae7     
+5payp  |eaae7     
+fgg8c  |eaae7     
+dhf5p  |eaae7     
+nkwny  |eaae7     
+bh3ry  |eaae7     
+4a2b2  |eaae7     
+4dbhe  |eaae7     
+yexm2  |eaae7     
+cr5fr  |eaae7     
+pnyxm  |eaae7     
+kwnp7  |eaae7     
+28p2m  |eaae7     
+yk8h5  |eaae7     
+4xwky  |eaae7     
+2rn56  |eaae7     
+r8yrx  |eaae7     
+w8p74  |eaae7     
+5g7em  |eaae7     
+hbw4a  |eaae7     
+exyec  |eaae7     
+mp2pn  |eaae7     
+67nrw  |eaae7     
+efcxa  |eaae7     
+3xwx3  |eaae7     
+2wpx2  |eaae7     
+p8386  |eaae7     
+bh7br  |eaae7     
+cf4nn  |eaae7     
+36868  |eaae7     
+fpr5d  |eaae7     
+gdrfp  |eaae7     
+a8kxw  |eaae7     
+kmdbd  |eaae7     
+aff2m  |eaae7     
+5m4gr  |eaae7     
+b8yhp  |eaae7     
+dawa6  |eaae7     
+n3fkh  |eaae7     
+yfra2  |eaae7     
+gybeg  |eaae7     
+ykyye  |eaae7     
+7f4y7  |eaae7     
+e4efe  |eaae7     
+6344m  |eaae7     
+wnhbm  |eaae7     
+fgdce  |eaae7     
+nax7w  |eaae7     
+ad4f3  |eaae7     
+ppy64  |eaae7     
+c54bw  |eaae7     
+rrm6f  |eaae7     
+m3kch  |eaae7     
+6pbce  |eaae7     
+48a43  |eaae7     
+axhch  |eaae7     
+7abde  |eaae7     
+7egph  |eaae7     
+37fa4  |eaae7     
+e53he  |eaae7     
+rwh8c  |eaae7     
+2864e  |eaae7     
+y3w7m  |eaae7     
+rrnma  |eaae7     
+f4mnm  |eaae7     
+mkrca  |eaae7     
+hf2r7  |eaae7     
+326ar  |eaae7     
+2xmc3  |eaae7     
+8dggg  |eaae7     
+2w26a  |eaae7     
+bp73r  |eaae7     
+4bdke  |eaae7     
+6n22k  |eaae7     
+ff4rx  |eaae7     
+mgngh  |eaae7     
+87kwh  |eaae7     
+45x86  |eaae7     
+74ky3  |eaae7     
+xear2  |eaae7     
+b2xrh  |eaae7     
+k2k8f  |eaae7     
+yg4p5  |eaae7     
+xm56f  |eaae7     
+x7rkw  |eaae7     
+66bxc  |eaae7     
+kpdp3  |eaae7     
+5p74x  |eaae7     
+6xn76  |eaae7     
+5h7rh  |eaae7     
+p675p  |eaae7     
+apekr  |eaae7     
+rcdp8  |eaae7     
+2bxb8  |eaae7     
+25m8r  |eaae7     
+wa222  |eaae7     
+2drrd  |eaae7     
+d3x8f  |eaae7     
+7g3wh  |eaae7     
+hbhya  |eaae7     
+m88rr  |eaae7     
+my28e  |eaae7     
+bw8ab  |eaae7     
+xg7c3  |eaae7     
+4mwhf  |eaae7     
+ycn2m  |eaae7     
+dneke  |eaae7     
+7w7nx  |eaae7     
+ckr22  |eaae7     
+88r3f  |eaae7     
+3rcb2  |eaae7     
+623n7  |eaae7     
+mm2yg  |eaae7     
+7kcy3  |eaae7     
+3y87p  |eaae7     
+pxnhn  |eaae7     
+dx3yc  |eaae7     
+3mw5w  |eaae7     
+ra2c6  |eaae7     
+6n6bx  |eaae7     
+h52n8  |eaae7     
+2w75h  |eaae7     
+6wd3f  |eaae7     
+hnyer  |eaae7     
+d62xf  |eaae7     
+bydrw  |eaae7     
+5xn7w  |eaae7     
+7apde  |eaae7     
+wnph6  |eaae7     
+56yn7  |eaae7     
+x234c  |eaae7     
+g32kf  |eaae7     
+wdpkx  |eaae7     
+2acr7  |eaae7     
+wymhm  |eaae7     
+achww  |eaae7     
+4xxyw  |eaae7     
+cpdrd  |eaae7     
+5e4bb  |eaae7     
+dckg4  |eaae7     
+ayra4  |eaae7     
+rf6fp  |eaae7     
+8wwe7  |eaae7     
+f67a2  |eaae7     
+nd3py  |eaae7     
+xcfw3  |eaae7     
+8ee4m  |eaae7     
+77442  |eaae7     
+gmdmc  |eaae7     
+pknbn  |eaae7     
+3nnxr  |eaae7     
+printing correct predictions
+done testing
+Test Accuracy 0.0404
