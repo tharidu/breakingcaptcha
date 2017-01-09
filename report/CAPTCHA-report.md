@@ -7,9 +7,9 @@ There are several use cases for CAPTCHAs, which includes the ones presented in [
 - Preventing comment spam
 - Protect website registration
 - Protect e-mail addresses from scrappers
-- Online polls
-- Preventing Dictionary Attacks
-- Search Engine Bots
+- Protect online polls
+- Preventing dictionary attacks
+- Block/hinder search engine bots
 
 CAPTCHAs do not give a guarantee that it prevents these cases every time as there are known attack vectors. These include cheap or unwitting human labor, insecure implementation, and machine learning based attacks. We will not go into detail on insecure implementations, as the focus of this article are deep learning based approaches.
 
@@ -112,14 +112,14 @@ Next, we added rotation to our CAPTCHAs and trained the CNN on 49782 samples. Th
 
 From the tests conducted above, we have a few examples to show correct and false predictions.
 **Correct** </br>
-![correct1](report/pics/54563.jpg) prediction: 54563 </br>
-![correct2](report/pics/grh56.jpg) prediction: grh56 </br>
-![correct3](report/pics/fb2x4.jpg) prediction: fb2x4
+![correct1](pics/54563.jpg) prediction: 54563 </br>
+![correct2](pics/grh56.jpg) prediction: grh56 </br>
+![correct3](pics/fb2x4.jpg) prediction: fb2x4
 
 **False** </br>
-![false1](report/pics/82290.jpg) prediction: 8229**8** </br>
-![false2](report/pics/h76ap.jpg) prediction: **k**76ap </br>
-![false3](report/pics/fffgf.jpg) prediction: fffg**r**
+![false1](pics/82290.jpg) prediction: 8229**8** </br>
+![false2](pics/h76ap.jpg) prediction: **k**76ap </br>
+![false3](pics/fffgf.jpg) prediction: fffg**r**
 
 
 ## Conclusion
