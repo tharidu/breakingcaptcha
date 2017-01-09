@@ -103,8 +103,8 @@ sess = tf.Session()
 sess.run(init)
 
 n_classes = image_reader.NUM_CLASSES
-batch_size = 100
-n_epochs = 1
+batch_size = 250
+n_epochs = 15
 n_batches_train = int(image_reader.training_dataset_length() // batch_size)
 print "number of batches: %d" % (n_batches_train)
 
