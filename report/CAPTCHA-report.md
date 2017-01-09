@@ -62,7 +62,7 @@ We are generating the datasets using a Java based captcha generator. We have gen
 - training: 50000 images; testing: 5000 images
 - training: 100000 images; testing: 10000 images
 - training: 500000 images; testing: 50000 images
-- - training: 1000000 images; testing: 100000 images
+- training: 1000000 images; testing: 100000 images
 - training: 5000000 images; testing: 500000 images
 
 Each dataset contains jpeg images containing a captcha with five characters. The characters are lowercase (a-z) or numbers (0-9). We used the fonts "Arial" and "Courier" with noise. An example of the created captchas is displayed below. Our intention was to mimic the captchas created by [Microsoft](https://courses.csail.mit.edu/6.857/2015/files/hong-lopezpineda-rajendran-recansens.pdf).
