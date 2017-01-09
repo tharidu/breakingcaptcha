@@ -57,27 +57,24 @@ Further captcha techniques can include simple logic or math questions, image rec
 The aim of the project is to break captchas using deep learning technologies without pre-segmentation. Initially we focus on simple captchas to evaluate the performance and move into complex captchas. The training dataset will be generated from an open source captcha generation software. Tensorflow will be used to create and train a neural network.
 
 ## Creating the datasets
-We are generating the datasets using a Java based captcha generator ([SimpleCaptcha](http://simplecaptcha.sourceforge.net/)).
+We are generating the datasets using a Java based captcha generator ([SimpleCaptcha](http://simplecaptcha.sourceforge.net/)). We have created the following datasets.
+
+| Description | Size | Training samples | Test samples |
+|............:|.....:|.................:|.............:|
+| Digits only | 38 MB | 9502 | 100 |
+| Digits and characters | 197 MB | 49796 | 100 |
+| Digits and characters with rotation | 198 MB | 49782 | 500 |
+| Digits and characters with rotation | 777 MB | 196926 | 500 |
 
 Each dataset contains jpeg images containing a captcha with five characters. The characters are lowercase (a-z) or numbers (0-9). We used the fonts "Arial" and "Courier" with noise. An example of the created captchas is displayed below. Our intention was to mimic the captchas created by [Microsoft](https://courses.csail.mit.edu/6.857/2015/files/hong-lopezpineda-rajendran-recansens.pdf).
 We have extended SimpleCaptcha library in order to get character rotation, outlines in captchas to achieve the same look of Microsoft captchas.
 
 Generated captchas will be 152x80 greyscale images. This resolution is chosen because it is small enough to reduce memory footprint when training the CNN and it is also enough to recognize the captcha easily.
 
-![Captcha1](pics/8arm7.jpg)
-![Captcha2](pics/mb5y3.jpg)
-![Captcha3](pics/rgy8a.jpg)
-![Captcha4](pics/yx4f7.jpg)
+![Captcha1](report/pics/54563.jpg) *Simple digit-only captcha* <\br>
+![Captcha2](report/pics/5p23r.jpg) *Characters and digits without rotation* <\br>
+![Captcha3](report/pics/8arm7.jpg) *Characters and digits with rotation*
 
-We have generated the following datasets:
-- training: 1000 images; testing: 100 images
-- training: 5000 images; testing: 500 images
-- training: 10000 images; testing: 1000 images
-- training: 50000 images; testing: 5000 images
-- training: 100000 images; testing: 10000 images
-- training: 500000 images; testing: 50000 images
-- training: 1000000 images; testing: 100000 images
-- training: 5000000 images; testing: 500000 images
 
 ## A naive approach to captcha breaking
 As the first step we use quite simple captchas as displayed below.
