@@ -17,7 +17,7 @@ X_input = tf.placeholder(tf.float32, [None, 152 * 80])
 X = tf.reshape(X_input, shape=[-1, 152, 80, 1])
 Y_ = tf.placeholder(tf.float32, [None, 5 * image_reader.NUM_CLASSES])
 
-learning_rate = 0.01
+learning_rate = 0.001
 
 def create_fully_connected_weight(shape):
     return tf.Variable(tf.truncated_normal(shape, stddev=0.1))
