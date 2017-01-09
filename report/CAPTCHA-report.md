@@ -60,7 +60,7 @@ The aim of the project is to break captchas using deep learning technologies wit
 We are generating the datasets using a Java based captcha generator ([SimpleCaptcha](http://simplecaptcha.sourceforge.net/)). We have created the following datasets.
 
 | Description | Size | Training samples | Test samples |
-|............:|.....:|.................:|.............:|
+|:------------|-----:|-----------------:|-------------:|
 | Digits only | 38 MB | 9502 | 100 |
 | Digits and characters | 197 MB | 49796 | 100 |
 | Digits and characters with rotation | 198 MB | 49782 | 500 |
@@ -71,9 +71,9 @@ We have extended SimpleCaptcha library in order to get character rotation, outli
 
 Generated captchas will be 152x80 greyscale images. This resolution is chosen because it is small enough to reduce memory footprint when training the CNN and it is also enough to recognize the captcha easily.
 
-![Captcha1](report/pics/54563.jpg) *Simple digit-only captcha* <\br>
-![Captcha2](report/pics/5p23r.jpg) *Characters and digits without rotation* <\br>
-![Captcha3](report/pics/8arm7.jpg) *Characters and digits with rotation*
+![Captcha1](pics/54563.jpg) *Simple digit-only captcha* </br>
+![Captcha2](pics/5p23r.jpg) *Characters and digits without rotation* </br>
+![Captcha3](pics/ycn2m.jpg) *Characters and digits with rotation*
 
 
 ## A naive approach to captcha breaking
@@ -85,7 +85,7 @@ Initially to validate our neural network model, 50K images of digits only captch
 ![simplegenerated2](pics/rgy8a.jpg)
 
 ## Deep CNN model
-We will be using a deep CNN with 3 ReLu layers and 2 fully connected layers to solve the captchas.
+We will be using a deep CNN with three ReLU layers and two fully connected layers to solve the captchas.
 Each digit is represented by 36 neurons in the output layer.
 The 3 convolutional layers with ReLu activation function have the sizes of 32, 64, and 128.
 5x5 filter size was used in all layers. After each convolutional layer there is a max pooling of 2.

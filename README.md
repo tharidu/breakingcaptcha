@@ -6,7 +6,7 @@ The aim of the project is to break captchas using deep learning technologies. In
 ## Generating the dataset
 The datasets can be generated using a Java based captcha generator. The easiest way is to import the Java project into IntelliJ, compile, and execute  `breakingcaptcha/data_gen/src/kth/id2223/Main.java`. We have generated the following datasets.
 | Description | Size | Training samples | Test samples |
-|............:|.....:|.................:|.............:|
+|:------------|-----:|-----------------:|-------------:|
 | Digits only | 38 MB | 9502 | 100 |
 | Digits and characters | 197 MB | 49796 | 100 |
 | Digits and characters with rotation | 198 MB | 49782 | 500 |
@@ -14,9 +14,9 @@ The datasets can be generated using a Java based captcha generator. The easiest 
 
 Each dataset contains jpeg images containing a captcha with five characters. The characters are lowercase letters (a-z) or numbers (0-9). We used the fonts "Arial" and "Courier" with and without rotation. An example of the created captchas is displayed below. Our intention was to mimic the captchas created by [Microsoft](https://courses.csail.mit.edu/6.857/2015/files/hong-lopezpineda-rajendran-recansens.pdf).
 
-![Captcha1](report/pics/54563.jpg) *Simple digit-only captcha* <\br>
-![Captcha2](report/pics/5p23r.jpg) *Characters and digits without rotation* <\br>
-![Captcha3](report/pics/8arm7.jpg) *Characters and digits with rotation*
+![Captcha1](pics/54563.jpg) *Simple digit-only captcha* </br>
+![Captcha2](pics/5p23r.jpg) *Characters and digits without rotation* </br>
+![Captcha3](pics/ycn2m.jpg) *Characters and digits with rotation*
 
 
 ## Executing the CNN
