@@ -1,12 +1,8 @@
 # Using deep learning to automatically break captchas
 ## Introduction
-Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) is a way of differentiating humans and machines and was coined by von Ahn, Blum, Hopper, and Langford [5]. The core idea is that reading distorted letters, numbers, or images is achievable for a human but very hard or impossible for a computer. Captchas might look like the two below. Most likely the reader has already seen one, when trying to register at a website or write a comment online.
+Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) is a way of differentiating humans and machines and was coined by von Ahn, Blum, Hopper, and Langford [5]. The core idea is that reading distorted letters, numbers, or images is achievable for a human but very hard or impossible for a computer. Captchas might look like the one below. Most likely the reader has already seen one, when trying to register at a website or write a comment online.
 ![simple captcha](pics/Penguin-Pal_Captcha.png)
 *Simple captcha with two different fonts and slight rotation*
-
-
-![captcha](pics/red-captcha.png)
-*reCAPTCHA example with two words, rotation and distortion*
 
 There are several use cases for captchas, which includes the ones presented in [6]:
 - Preventing comment spam
@@ -30,26 +26,32 @@ Out of curiosity and comparability to machine learning approaches, we take a loo
 | 9kw.eu | N/A | 30 sec |
 | DeathByCaptcha | 96.8% | 10 sec |
 
-The values are advertised and self-reported. We did not conduct any verification of the stated numbers, but it can give an orientation what a machine learning based approach should achieve.
+The values are advertised and self-reported. We did not conduct any verification of the stated numbers, but it can give an orientation on human performance and serves as a reference for our machine learning algorithms.
 
 
 ### Learning based captcha breaking
-Captchas are based on an unsolved AI problem. However, with the progress of AI techniques and computing power, sequences of characters or captchas can be recognized as shown by Goodfellow et al. in [1], Hong et al. in [2], Bursztein et al. in [3] and [7], and Stark et al. in [4] using deep learning techniques. Goodfellow et al. predict numbers from Goolge Street View images directly (without pre-processing) utilizing a CNN. They make use of  [DistBelief](https://research.google.com/pubs/pub40565.html) by Dean et al. to scale the learning to multiple computers and to avoid out of memory issues [1]. Hong et al. pre-process captchas to rotate them and segment the characters. Afterwards they apply a CNN with three convolutional layers and two fully connected layers [2]. Bursztein et al. use pre-processing, segmentation, and recognition techniques (based on KNN) and later on various CNNs to detect captchas from multiple websites including Baidu, Wikipedia, reCAPTCHA, and Yahoo [3],[7]. Stark et al. researched a way of detecting captchas with limited testing data. They use a technique called Active Learning to feed the network with new training data, that is ambiguous to improve the performance [4].
+Captchas are based on an unsolved AI problem. However, with the progress of AI techniques and computing power, sequences of characters or captchas can be recognized as shown by Goodfellow et al. in [1], Hong et al. in [2], Bursztein et al. in [3] and [7], and Stark et al. in [4] using deep learning techniques. Goodfellow et al. predict numbers from Goolge Street View images directly (without pre-processing) utilizing a CNN. They make use of  [DistBelief](https://research.google.com/pubs/pub40565.html) by Dean et al. to scale the learning to multiple computers and to avoid out of memory issues [1]. This technique was later on used to solve captchas, whereby the researched achieved an [accuracy of 99.6%](http://www.zdnet.com/article/google-algorithm-busts-captcha-with-99-8-percent-accuracy/). Hong et al. pre-process captchas to rotate them and segment the characters. Afterwards they apply a CNN with three convolutional layers and two fully connected layers [2]. Bursztein et al. use pre-processing, segmentation, and recognition techniques (based on KNN) and later on various CNNs to detect captchas from multiple websites including Baidu, Wikipedia, reCAPTCHA, and Yahoo [3],[7]. Stark et al. researched a way of detecting captchas with limited testing data. They use a technique called Active Learning to feed the network with new training data, where the added data has a high classification uncertainty, to improve the performance overall [4]. The below table gives an overview of the reported accuracies in the different papers and blog posts.
 
-The below table gives an overview of their reported accuracies.
-
-| Researcher | Dataset | Technique | Accuracy | Reference |
+| Researcher | Dataset | Technique | Accuracy (maximum) | Reference |
 |-----------:|--------:|----------:|---------:|----------:|
 | Goodfellow et al. | Google Street View image files | CNN with DistBelief | 96% | [1] |
-| Hong et al. | Microsoft captchas | Preprocessing, segementation and CNN | 96% | [2] |
-| Goodfellow et al. | Google Street View image files | CNN with DistBelief | 96% | [1] |
-| Goodfellow et al. | Google Street View image files | CNN with DistBelief | 96% | [1] |
-| Goodfellow et al. | Google Street View image files | CNN with DistBelief | 96% | [1] |
+| Hong et al. | Microsoft captchas | Preprocessing, segementation and CNN | 57% | [2] |
+| Stark et al. | Cool PHP CAPTCHA generated captchas | CNN with Active Deep Learning | 90% | [4] |
+| Bursztein et al. | Baidu, CNN, eBay, ReCAPTCHA, Wikipedia, Yahoo captchas | Reinforcement Learning, k-Nearest Neighbour | 54% (on Baidu) | [7] |
+| Bursztein | Simple CAPTCHA | CNN | 92% | [3] |
+| Bursztein | Simple CAPTCHA | RNN | 96% | [8] |
 
 ### Current state of captchas
-As part of
-
+Google has introduced [NoCAPTCHA](https://www.google.com/recaptcha/intro/index.html) in December 2014. This introduces multiply new features including evaluation base don cookies, movement of the mouse, and recognition of multiple images. Google announced to introduce an
+[invisible captcha](https://www.google.com/recaptcha/intro/comingsoon/invisiblebeta.html) to get rid of the checkbox.
 ![recaptcha](pics/noCaptcha-mobile.png.gif)
+*Google NoCAPTCHA checkbox*
+
+The previous version of [reCAPTCHA](https://security.googleblog.com/2014/12/are-you-robot-introducing-no-captcha.html) was very popular on many websites. It included typically two words with rotation and had an audio option.
+![captcha](pics/red-captcha.png)
+*reCAPTCHA example with two words, rotation and distortion*
+
+Further captcha techniques can include simple logic or math questions, image recognition, recognition of friends (social captcha), or user interaction (like playing a game) [9].
 
 ## Our objectives and motivation
 The aim of the project is to break captchas using deep learning technologies. Initially we focus on simple captchas to evaluate the performance and move into complex captchas. The training dataset will be generated from an open source captcha generation software. Tensorflow will be used to create and train a neural network.
@@ -67,15 +69,15 @@ We are generating the datasets using a Java based captcha generator. We have gen
 
 Each dataset contains jpeg images containing a captcha with five characters. The characters are lowercase (a-z) or numbers (0-9). We used the fonts "Arial" and "Courier" with noise. An example of the created captchas is displayed below. Our intention was to mimic the captchas created by [Microsoft](https://courses.csail.mit.edu/6.857/2015/files/hong-lopezpineda-rajendran-recansens.pdf).
 
-![Captcha1](report/pics/8arm7.jpg)
-![Captcha1](report/pics/mb5y3.jpg)
-![Captcha1](report/pics/rgy8a.jpg)
-![Captcha1](report/pics/yx4f7.jpg)
+![Captcha1](pics/8arm7.jpg)
+![Captcha1](pics/mb5y3.jpg)
+![Captcha1](pics/rgy8a.jpg)
+![Captcha1](pics/yx4f7.jpg)
 
 
 ## A naive approach to captcha breaking
 As a first step we use quite simple captchas as displayed below.
-![simplegenerated](pics/rgy8a.jpg)
+
 
 
 
@@ -92,3 +94,5 @@ As a first step we use quite simple captchas as displayed below.
 5. Von Ahn, Luis, et al. "CAPTCHA: Using hard AI problems for security." International Conference on the Theory and Applications of Cryptographic Techniques. Springer Berlin Heidelberg, 2003.
 6. "CAPTCHA: Telling Humans and Computers Apart Automatically" 2010, http://www.captcha.net/. Accessed 7 Jan. 2017.
 7. 	Elie Bursztein et al., "The end is nigh: generic solving of text-based CAPTCHAs". Proceedings of the 8th USENIX conference on Offensive Technologies, p.3-3, August 19, 2014, San Diego, CA
+8. "Recurrent neural networks for decoding CAPTCHAS | Deep Learning." 12 Jan. 2016, https://deepmlblog.wordpress.com/2016/01/12/recurrent-neural-networks-for-decoding-captchas/. Accessed 9 Jan. 2017.
+9. "Captcha Alternatives and thoughts." 15 Dec. 2015, https://www.w3.org/WAI/GL/wiki/Captcha_Alternatives_and_thoughts. Accessed 9 Jan. 2017.
