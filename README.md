@@ -15,9 +15,9 @@ The datasets can be generated using a Java based captcha generator. The easiest 
 Each dataset contains jpeg images containing a captcha with five characters. The characters are lowercase (a-z) or numbers (0-9). We used the fonts "Arial" and "Courier" with noise. An example of the created captchas is displayed below. Our intention was to mimic the captchas created by [Microsoft](https://courses.csail.mit.edu/6.857/2015/files/hong-lopezpineda-rajendran-recansens.pdf).
 
 ![Captcha1](report/pics/8arm7.jpg)
-![Captcha1](report/pics/mb5y3.jpg)
-![Captcha1](report/pics/rgy8a.jpg)
-![Captcha1](report/pics/yx4f7.jpg)
+![Captcha2](report/pics/mb5y3.jpg)
+![Captcha3](report/pics/rgy8a.jpg)
+![Captcha4](report/pics/yx4f7.jpg)
 
 
 ## Executing the CNN
@@ -26,7 +26,9 @@ We have developed the code using Tensorflow 8.0 with Python 2.7.6 and CUDA 8.0 w
 `PYTHONPATH=".." python captcha_cnn.py`.
 
 ## Results
-open
+Digits only:
+![DigitsOnly](report/pics/digits_only.png) </br>
+*CNN with three conv. layers and two fully connected layers accuracy of captchas with 5 digits without rotation. Training with 157 batches, 39250 training samples, and testing with 100 captchas.*
 
 ## Report
 We have compiled a full blog-style [report](report/CAPTCHA-report.md) with more details.
