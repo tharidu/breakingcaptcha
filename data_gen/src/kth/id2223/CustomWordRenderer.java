@@ -90,7 +90,7 @@ public class CustomWordRenderer implements WordRenderer {
             GlyphVector gv = font.createGlyphVector(frc, chars);
 
             // Randomly select what to render
-            boolean rotate = false; //RAND.nextBoolean();
+            boolean rotate = RAND.nextBoolean();
             boolean outline = false; //RAND.nextBoolean();
 
             int x = xBaseline + 5; //RAND.nextInt(2);
@@ -134,4 +134,3 @@ public class CustomWordRenderer implements WordRenderer {
         return at.createTransformedShape(glyph);
     }
 }
-

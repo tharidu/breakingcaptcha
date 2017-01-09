@@ -8,12 +8,12 @@ from scipy.misc import imread
 from readers import label_util
 import tensorflow as tf
 
-IMAGE_WIDTH = 160
+IMAGE_WIDTH = 152
 IMAGE_HEIGHT = 80
 CAPTCHA_LENGTH = 5
 
 # Global constants describing the captcha data set.
-NUM_CLASSES = 10
+NUM_CLASSES = 36
 NUM_EXAMPLES_PER_EPOCH_FOR_TRAIN = 1000
 NUM_EXAMPLES_PER_EPOCH_FOR_EVAL = 100
 training_folder = "../imgs/"

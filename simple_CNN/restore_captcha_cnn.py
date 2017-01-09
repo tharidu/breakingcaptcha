@@ -7,6 +7,8 @@ import numpy as np
 import time
 from readers import image_reader
 from readers import label_util
+from scipy.misc import imread
+import sys
 
 # train_X, train_Y = image_reader.load_training_dataset()
 test_X, test_Y = image_reader.load_testing_dataset()
@@ -95,16 +97,19 @@ correct_prediction = tf.equal(tf.argmax(predictions, 2), tf.argmax(Ytrue, 2))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
 # initialize
-init = tf.initialize_all_variables()
+# init = tf.initialize_all_variables()
 
 saver = tf.train.Saver()
 
 sess = tf.Session()
-sess.run(init)
+# sess.run()
+
+# Restore variables from disk.
+saver.restore(sess, "model.ckpt")
 
 n_classes = image_reader.NUM_CLASSES
-batch_size = 100
-n_epochs = 1
+batch_size = 256
+n_epochs = 50
 n_batches_train = int(image_reader.training_dataset_length() // batch_size)
 print "number of batches: %d" % (n_batches_train)
 
@@ -164,44 +169,46 @@ i = 1
 train_ac = []
 train_loss = []
 test_ac = []
-for e in xrange(n_epochs):
-    start_time = time.time()
-    n_data = image_reader.training_dataset_length()
-    # n_data = train_X.shape[0]
-    # print n_data
-    perm = np.random.permutation(n_data)
-    # train_X = train_X[perm, :]
-    # train_Y = train_Y[perm]
-    mean_loss_per_sample_train, accuracy_per_sample_train = all_batches_run_train(n_batches_train)
-    #test_a = test_epochs(data=test_X, labels=test_Y)
-    print "loss after epoch %d = %f: " % (i, mean_loss_per_sample_train)
-    print "train accuracy after epoch %d = %f: " % (i, accuracy_per_sample_train)
-    #print "test accuracy after epoch %d = %f: " % (i, test_a[0])
-    print "-----------------------------------\n"
-    i = i + 1
-    train_ac.append(accuracy_per_sample_train)
-    train_loss.append(mean_loss_per_sample_train)
-#    test_ac.append(test_a[0])
+# for e in xrange(n_epochs):
+#     start_time = time.time()
+#     n_data = image_reader.training_dataset_length()
+#     # n_data = train_X.shape[0]
+#     # print n_data
+#     perm = np.random.permutation(n_data)
+#     # train_X = train_X[perm, :]
+#     # train_Y = train_Y[perm]
+#     mean_loss_per_sample_train, accuracy_per_sample_train = all_batches_run_train(n_batches_train)
+#     #test_a = test_epochs(data=test_X, labels=test_Y)
+#     print "loss after epoch %d = %f: " % (i, mean_loss_per_sample_train)
+#     print "train accuracy after epoch %d = %f: " % (i, accuracy_per_sample_train)
+#     #print "test accuracy after epoch %d = %f: " % (i, test_a[0])
+#     print "-----------------------------------\n"
+#     i = i + 1
+#     train_ac.append(accuracy_per_sample_train)
+#     train_loss.append(mean_loss_per_sample_train)
+# #    test_ac.append(test_a[0])
 
 
 
-print('done training')
-save_path = saver.save(sess, "model.ckpt")
-plt.title("Training Accuracy over epochs")
-plt.plot(train_ac, label="Training Accuracy")
+# print('done training')
+# save_path = saver.save(sess, "model.ckpt")
+# plt.title("Training Accuracy over epochs")
+# plt.plot(train_ac, label="Training Accuracy")
 #plt.plot(test_ac, label="Test Accuracy")
-plt.xlabel("epoch")
-plt.legend(loc=4)
-plt.grid(True)
-plt.show()
+# plt.xlabel("epoch")
+# plt.legend(loc=4)
+# plt.grid(True)
+# plt.show()
 
-plt.title("Training loss over epochs")
-plt.plot(train_loss, label="Training Loss")
-plt.xlabel("epoch")
-plt.grid(True)
-plt.show()
+# plt.title("Training loss over epochs")
+# plt.plot(train_loss, label="Training Loss")
+# plt.xlabel("epoch")
+# plt.grid(True)
+# plt.show()
 
-test_results = test_and_evaluate(data=test_X, labels=test_Y)
+img = imread(sys.argv[1], flatten=True).flatten()
+captcha_text = sys.argv[1][0:5]
+test_results = test_and_evaluate(data=np.array([img]), labels=np.array([label_util.words_to_vec(captcha_text)]))
 
 print('done testing')
 print("Test Accuracy " + str(test_results[2]))
