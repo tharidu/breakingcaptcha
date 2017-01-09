@@ -1,5 +1,4 @@
 # Using deep learning to automatically break captchas
-## Introduction
 Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) is a way of differentiating humans and machines and was coined by von Ahn, Blum, Hopper, and Langford [5]. The core idea is that reading distorted letters, numbers, or images is achievable for a human but very hard or impossible for a computer. Captchas might look like the one below. Most likely the reader has already seen one, when trying to register at a website or write a comment online.
 ![simple captcha](pics/Penguin-Pal_Captcha.png)  </br>
 *Simple captcha with two different fonts and slight rotation*
@@ -101,20 +100,26 @@ In the output layer, digits 0-9 will be represented by 1 to 10 neurons and, char
 
 ## Results and discussion
 First, we trained the CNN with 10000 five character and digit captchas including rotation on a GTX660M. We had 100 batches with a batch size of 100 and ran it for 20 epochs. The hyperparameters were set as described in the previous section. The figure below shows that the network did not perform well with these settings. We then increased the training size to 50000 captchas, but the results stayed the same. We then tried with 10000 simplified captchas with only five digits without rotation. However, this still did not improve our situation. We noted that the loss function reduced quite quickly and stayed constant. We hence introduced another convolutional layer to the network to allow it to further differentiate the digits. Again, this resulted in almost the same result as displayed in the figure below.
+
 ![DigitsOnly660M](pics/digits_only_660M.png) </br>
 *CNN with three conv. layers and two fully connected layers accuracy of captchas with 5 digits without rotation. Training with 100 batches and 10000 training samples.*
 
 These results match the ones presented in [4]. The authors then introduce Active Learning to circumvent the problem. In [1] a larger amount of samples is used. However, we do not have sufficient computing power available to use millions of images as training data. Also, in [3] the batch size was larger, with working results. We decided to change our batch size, but required a larger GPU for that. Hence, we used a Nvidia Tesla K80 from AWS to conduct our training. We also changed the network back to three conv. layers and two fully connected layers. On the simple case with five digit captchas without rotation we used 39250 captchas in 157 batches and 10 epochs. We conducted testing with a very small dataset of 100 captchas. The results did improve considerably as shown in the figure below.
+
 ![DigitsOnly](pics/digits_only.png) </br>
 *CNN with three conv. layers and two fully connected layers accuracy of captchas with 5 digits without rotation. Training with 157 batches, 39250 training samples, and testing with 100 captchas.*
 
 We then tried with a bit more complex captchas with digits and lowercase characters. We used 49750 training and 100 test captchas with the same CNN used in the simple case above. The figure below presents our results and shows that we can achieve an accuracy above 80% in these cases. We stopped the CNN prematurely after 10 epochs to go to more complex use cases.
+
 ![DigitsChar](pics/digits_char.png) </br>
 *CNN with three conv. layers and two fully connected layers accuracy of captchas with 5 digits or lowercase characters without rotation. Training with 199 batches, 49750 training samples, and testing with 100 captchas.*
 
 
 ## Conclusion
-
+With this project we have shown that it is possible to create large enough datasets automatically to mimic certain captchas (i.e. Microsoft). This provides then large labeled training samples to train neural networks. We have chosen to use two different CNNs with three and four convolutional layer and two fully connected layers. With a quite simple use of CNNs reasonable prediction results can be achieved.
+However, we noticed that optimizing a CNN can be cumbersome. While running the CNN on a GTX 660M, we were not able to manage to get satisfying results. Most likely we would have needed more training time on the batches to receive better results. When we switched to a Tesla K80 we managed to train the network with larger amounts of data and a higher batch size. This resulted on the simple and more complex datasets in higher accuracy. We noticed that memory poses a quite large limitation towards applying large scale machine learning.
+Our approach with a CNN is limited to captchas with exactly the length defined in the network. Hence, classifying captchas with any other length than five, would fail. As an alternative a RNN could be used to resolve this issue. In [8] a use of RNN to break captchas is discussed with fairly good results. However, also in this approach a powerful is required.
+Moreover, using a CNN requires large datasets to be trained on. For a combination of digits, characters, and rotation we required a dataset of around 200000 captchas (~780MB). On small sized GPU this datasets cause either out of memory errors or require a quite long training time.
 
 
 ## References
