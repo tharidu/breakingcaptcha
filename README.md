@@ -32,7 +32,7 @@ Then you can use `PYTHONPATH=".." python restore_CAPTCHA_cnn.py filename.jpg` to
 ## Results
 #### First unsuccessful tries
 ![DigitsOnly660M](report/pics/digits_only_660M.png) </br>
-*CNN with three conv. layers and two fully connected layers accuracy of CAPTCHAs with 5 digits or lowercase letters without rotation. Training in 100 batches and 10000 training samples.*
+*CNN with three conv. layers and two fully connected layers accuracy of CAPTCHAs with five digits or lowercase letters without rotation. Training in 100 batches and 10000 training samples.*
 
 #### Digit-only CAPTCHAs
 ![DigitsOnly](report/pics/digits_only.png) </br>
@@ -44,21 +44,19 @@ Then you can use `PYTHONPATH=".." python restore_CAPTCHA_cnn.py filename.jpg` to
 
 
 #### Digit and letter CAPTCHAs with rotation
-![DigitsCharRot](report/pics/digits_char.png) </br>
+![DigitsCharRot](report/pics/digits_char_rot.png) </br>
 *CNN with three conv. layers and two fully connected layers accuracy of CAPTCHAs with five digits or lowercase letters with rotation. Training in 787 batches, 196926 training samples, and testing with 500 CAPTCHAs.*
 
 #### Examples of correct and false predictions
-**Correct**
-
+**Correct** </br>
 ![correct1](report/pics/54563.jpg) prediction: 54563 </br>
 ![correct2](report/pics/grh56.jpg) prediction: grh56 </br>
 ![correct3](report/pics/fb2x4.jpg) prediction: fb2x4
 
-**False**
-
+**False** </br>
 ![false1](report/pics/82290.jpg) prediction: 8229**8** </br>
 ![false2](report/pics/h76ap.jpg) prediction: **k**76ap </br>
-![false3](report/pics/fffgf.jpg) prediction: fffg**r** </br>
+![false3](report/pics/fffgf.jpg) prediction: fffg**r**
 
 ## Report
 We have compiled a full blog-style [report](report/CAPTCHA-report.md) with more details. Selected results can be found in the [results folder](https://github.com/tharidu/breakingcaptcha/tree/master/report/results).
