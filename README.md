@@ -25,6 +25,9 @@ We have developed the code using Tensorflow 8.0 with Python 2.7.6 and CUDA 8.0 w
 `cd simple_CNN` and
 `PYTHONPATH=".." python captcha_cnn.py`.
 
+After a successful training, the learned model is saved as `model.ckpt`.
+Then you can use `PYTHONPATH=".." python restore_captcha_cnn.py filename.jpg` to predict an image file using the learned model.
+
 ## Results
 Digits only:
 ![DigitsOnly](report/pics/digits_only.png) </br>
