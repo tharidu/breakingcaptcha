@@ -88,8 +88,15 @@ Initially to validate our neural network model, 50K images of digits only captch
 ![simplegenerated](pics/rgy8a.jpg)
 
 ## Deep CNN model
-We will be using a deep CNN with 3 reLu layers and 2 fully connected layers to solve the captchas.
-Each digit is represented by 36 neurons in the output layer. Digits 0-9 will be represented by 1 to 10 neurons. And, characters a to z will be represented by 11 to 36 neurons. In the output layers there are 5 x 36 neurons which will identify the captcha. The network will output the predictions for all 5 digits and each digit is calculated by the max probability of its 36 neurons.
+We will be using a deep CNN with 3 ReLu layers and 2 fully connected layers to solve the captchas.
+Each digit is represented by 36 neurons in the output layer.
+The 3 convolutional layers with ReLu activation function have the sizes of 32, 64, and 128.
+5x5 filter size was used in all layers. After each convolutional layer there is a max pooling of 2.
+After the last convolutional layer, there is a fully connected layer with ReLu of size 1024 and finally another fully connected layer that has an output size of 180. In the ReLu layers, a dropout of 0.75 is applied.
+
+In the output layer, digits 0-9 will be represented by 1 to 10 neurons and, characters a to z will be represented by 11 to 36 neurons. Therefore, there are 5 x 36 neurons which will identify the captcha. The network will output the predictions for all 5 digits and each digit is calculated by the max probability of its 36 neurons. We have set the learning rate as 0.001.
+
+<img src="pics/cnn.png" alt="drawing" width="550" >
 
 ## TBD: Our further things
 
