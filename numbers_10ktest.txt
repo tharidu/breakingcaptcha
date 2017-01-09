@@ -1,0 +1,102 @@
+number of batches: 95
+sum of samples trained 9500
+loss after epoch 1 = 7.817761: 
+train accuracy after epoch 1 = 0.100000: 
+-----------------------------------
+
+sum of samples trained 9500
+loss after epoch 2 = 0.328324: 
+train accuracy after epoch 2 = 0.098105: 
+-----------------------------------
+
+sum of samples trained 9500
+loss after epoch 3 = 0.328050: 
+train accuracy after epoch 3 = 0.099958: 
+-----------------------------------
+
+sum of samples trained 9500
+loss after epoch 4 = 0.327934: 
+train accuracy after epoch 4 = 0.097474: 
+-----------------------------------
+
+sum of samples trained 9500
+loss after epoch 5 = 0.327786: 
+train accuracy after epoch 5 = 0.098905: 
+-----------------------------------
+
+sum of samples trained 9500
+loss after epoch 6 = 0.327592: 
+train accuracy after epoch 6 = 0.099326: 
+-----------------------------------
+
+sum of samples trained 9500
+loss after epoch 7 = 0.327344: 
+train accuracy after epoch 7 = 0.102211: 
+-----------------------------------
+
+sum of samples trained 9500
+loss after epoch 8 = 0.327375: 
+train accuracy after epoch 8 = 0.096863: 
+-----------------------------------
+
+sum of samples trained 9500
+loss after epoch 9 = 0.327157: 
+train accuracy after epoch 9 = 0.099937: 
+-----------------------------------
+
+sum of samples trained 9500
+loss after epoch 10 = 0.327080: 
+train accuracy after epoch 10 = 0.100737: 
+-----------------------------------
+
+sum of samples trained 9500
+loss after epoch 11 = 0.326799: 
+train accuracy after epoch 11 = 0.101811: 
+-----------------------------------
+
+sum of samples trained 9500
+loss after epoch 12 = 0.326908: 
+train accuracy after epoch 12 = 0.098421: 
+-----------------------------------
+
+sum of samples trained 9500
+loss after epoch 13 = 0.326814: 
+train accuracy after epoch 13 = 0.100442: 
+-----------------------------------
+
+sum of samples trained 9500
+loss after epoch 14 = 0.326662: 
+train accuracy after epoch 14 = 0.098211: 
+-----------------------------------
+
+sum of samples trained 9500
+loss after epoch 15 = 0.326595: 
+train accuracy after epoch 15 = 0.102232: 
+-----------------------------------
+
+sum of samples trained 9500
+loss after epoch 16 = 0.326484: 
+train accuracy after epoch 16 = 0.102274: 
+-----------------------------------
+
+sum of samples trained 9500
+loss after epoch 17 = 0.326547: 
+train accuracy after epoch 17 = 0.099916: 
+-----------------------------------
+
+sum of samples trained 9500
+loss after epoch 18 = 0.326532: 
+train accuracy after epoch 18 = 0.097368: 
+-----------------------------------
+
+sum of samples trained 9500
+loss after epoch 19 = 0.326369: 
+train accuracy after epoch 19 = 0.100884: 
+-----------------------------------
+
+sum of samples trained 9500
+loss after epoch 20 = 0.326325: 
+train accuracy after epoch 20 = 0.100400: 
+-----------------------------------
+
+done training
