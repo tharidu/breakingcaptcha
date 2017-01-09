@@ -1,7 +1,7 @@
 # Using deep learning to automatically break captchas
 ## Introduction
 Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) is a way of differentiating humans and machines and was coined by von Ahn, Blum, Hopper, and Langford [5]. The core idea is that reading distorted letters, numbers, or images is achievable for a human but very hard or impossible for a computer. Captchas might look like the one below. Most likely the reader has already seen one, when trying to register at a website or write a comment online.
-![simple captcha](pics/Penguin-Pal_Captcha.png)
+![simple captcha](pics/Penguin-Pal_Captcha.png)  </br>
 *Simple captcha with two different fonts and slight rotation*
 
 There are several use cases for captchas, which includes the ones presented in [6]:
@@ -30,7 +30,7 @@ The values are advertised and self-reported. We did not conduct any verification
 
 
 ### Learning based captcha breaking
-Captchas are based on an unsolved AI problem. However, with the progress of AI techniques and computing power, sequences of characters or captchas can be recognized as shown by Goodfellow et al. in [1], Hong et al. in [2], Bursztein et al. in [3] and [7], and Stark et al. in [4] using deep learning techniques. Goodfellow et al. predict numbers from Goolge Street View images directly (without pre-processing) utilizing a CNN. They make use of  [DistBelief](https://research.google.com/pubs/pub40565.html) by Dean et al. to scale the learning to multiple computers and to avoid out of memory issues [1]. This technique was later on used to solve captchas, whereby the researched achieved an [accuracy of 99.6%](http://www.zdnet.com/article/google-algorithm-busts-captcha-with-99-8-percent-accuracy/). Hong et al. pre-process captchas to rotate them and segment the characters. Afterwards they apply a CNN with three convolutional layers and two fully connected layers [2]. Bursztein et al. use pre-processing, segmentation, and recognition techniques (based on KNN) and later on various CNNs to detect captchas from multiple websites including Baidu, Wikipedia, reCAPTCHA, and Yahoo [3],[7]. Stark et al. researched a way of detecting captchas with limited testing data. They use a technique called Active Learning to feed the network with new training data, where the added data has a high classification uncertainty, to improve the performance overall [4]. The below table gives an overview of the reported accuracies in the different papers and blog posts.
+Captchas are based on an unsolved AI problem. However, with the progress of AI techniques and computing power, sequences of characters or captchas can be recognized as shown by Goodfellow et al. in [1], Hong et al. in [2], Bursztein et al. in [3] and [7], and Stark et al. in [4] using deep learning techniques. Goodfellow et al. predict numbers from Goolge Street View images directly (without pre-processing) utilizing a CNN. They make use of  [DistBelief](https://research.google.com/pubs/pub40565.html) by Dean et al. to scale the learning to multiple computers and to avoid out of memory issues [1]. This technique was later on used to solve captchas, whereby the researched achieved an [accuracy of up to 99.8%](http://www.zdnet.com/article/google-algorithm-busts-captcha-with-99-8-percent-accuracy/). Hong et al. pre-process captchas to rotate them and segment the characters. Afterwards they apply a CNN with three convolutional layers and two fully connected layers [2]. Bursztein et al. use pre-processing, segmentation, and recognition techniques (based on KNN) and later on various CNNs to detect captchas from multiple websites including Baidu, Wikipedia, reCAPTCHA, and Yahoo [3],[7]. Stark et al. researched a way of detecting captchas with limited testing data. They use a technique called Active Learning to feed the network with new training data, where the added data has a high classification uncertainty, to improve the performance overall [4]. The below table gives an overview of the reported accuracies in the different papers and blog posts.
 
 | Researcher | Dataset | Technique | Accuracy (maximum) | Reference |
 |-----------:|--------:|----------:|---------:|----------:|
@@ -42,13 +42,14 @@ Captchas are based on an unsolved AI problem. However, with the progress of AI t
 | Bursztein | Simple CAPTCHA | RNN | 96% | [8] |
 
 ### Current state of captchas
-Google has introduced [NoCAPTCHA](https://www.google.com/recaptcha/intro/index.html) in December 2014. This introduces multiply new features including evaluation base don cookies, movement of the mouse, and recognition of multiple images. Google announced to introduce an
-[invisible captcha](https://www.google.com/recaptcha/intro/comingsoon/invisiblebeta.html) to get rid of the checkbox.
-![recaptcha](pics/noCaptcha-mobile.png.gif)
-*Google NoCAPTCHA checkbox*
+Google has introduced [NoCAPTCHA](https://www.google.com/recaptcha/intro/index.html) in December 2014. This introduces multiply new features including evaluation based on cookies, movement of the mouse, and recognition of multiple images. Google announced to introduce an [invisible captcha](https://www.google.com/recaptcha/intro/comingsoon/invisiblebeta.html) to get rid of the checkbox.
+
+![recaptcha](pics/noCaptcha-mobile.png.gif) </br>
+ *Google NoCAPTCHA checkbox*
 
 The previous version of [reCAPTCHA](https://security.googleblog.com/2014/12/are-you-robot-introducing-no-captcha.html) was very popular on many websites. It included typically two words with rotation and had an audio option.
-![captcha](pics/red-captcha.png)
+
+![captcha](pics/red-captcha.png) </br>
 *reCAPTCHA example with two words, rotation and distortion*
 
 Further captcha techniques can include simple logic or math questions, image recognition, recognition of friends (social captcha), or user interaction (like playing a game) [9].
@@ -65,9 +66,9 @@ We have extended SimpleCaptcha library in order to get character rotation, outli
 Generated captchas will be 152x80 greyscale images. This resolution is chosen because it is small enough to reduce memory footprint when training the CNN and it is also enough to recognize the captcha easily.
 
 ![Captcha1](pics/8arm7.jpg)
-![Captcha1](pics/mb5y3.jpg)
-![Captcha1](pics/rgy8a.jpg)
-![Captcha1](pics/yx4f7.jpg)
+![Captcha2](pics/mb5y3.jpg)
+![Captcha3](pics/rgy8a.jpg)
+![Captcha4](pics/yx4f7.jpg)
 
 We have generated the following datasets:
 - training: 1000 images; testing: 100 images
@@ -84,8 +85,8 @@ As the first step we use quite simple captchas as displayed below.
 
 Initially to validate our neural network model, 50K images of digits only captchas without any rotation or text effects were trained. Afterwards, alphanumeric captachs were used as the input for the CNN.
 
-![simplegenerated](pics/94794.jpg)
-![simplegenerated](pics/rgy8a.jpg)
+![simplegenerated1](pics/94794.jpg)
+![simplegenerated2](pics/rgy8a.jpg)
 
 ## Deep CNN model
 We will be using a deep CNN with 3 ReLu layers and 2 fully connected layers to solve the captchas.
@@ -98,9 +99,22 @@ In the output layer, digits 0-9 will be represented by 1 to 10 neurons and, char
 
 <img src="pics/cnn.png" alt="drawing" width="550" >
 
-## TBD: Our further things
+## Results and discussion
+First, we trained the CNN with 10000 five character and digit captchas including rotation on a GTX660M. We had 100 batches with a batch size of 100 and ran it for 20 epochs. The hyperparameters were set as described in the previous section. The figure below shows that the network did not perform well with these settings. We then increased the training size to 50000 captchas, but the results stayed the same. We then tried with 10000 simplified captchas with only five digits without rotation. However, this still did not improve our situation. We noted that the loss function reduced quite quickly and stayed constant. We hence introduced another convolutional layer to the network to allow it to further differentiate the digits. Again, this resulted in almost the same result as displayed in the figure below.
+![DigitsOnly660M](pics/digits_only_660M.png) </br>
+*CNN with three conv. layers and two fully connected layers accuracy of captchas with 5 digits without rotation. Training with 100 batches and 10000 training samples.*
+
+These results match the ones presented in [4]. The authors then introduce Active Learning to circumvent the problem. In [1] a larger amount of samples is used. However, we do not have sufficient computing power available to use millions of images as training data. Also, in [3] the batch size was larger, with working results. We decided to change our batch size, but required a larger GPU for that. Hence, we used a Nvidia Tesla K80 from AWS to conduct our training. We also changed the network back to three conv. layers and two fully connected layers. On the simple case with five digit captchas without rotation we used 39250 captchas in 157 batches and 10 epochs. We conducted testing with a very small dataset of 100 captchas. The results did improve considerably as shown in the figure below.
+![DigitsOnly](pics/digits_only.png) </br>
+*CNN with three conv. layers and two fully connected layers accuracy of captchas with 5 digits without rotation. Training with 157 batches, 39250 training samples, and testing with 100 captchas.*
+
+We then tried with a bit more complex captchas with digits and lowercase characters. We used 49750 training and 100 test captchas with the same CNN used in the simple case above. The figure below presents our results and shows that we can achieve an accuracy above 80% in these cases. We stopped the CNN prematurely after 10 epochs to go to more complex use cases.
+![DigitsChar](pics/digits_char.png) </br>
+*CNN with three conv. layers and two fully connected layers accuracy of captchas with 5 digits or lowercase characters without rotation. Training with 199 batches, 49750 training samples, and testing with 100 captchas.*
+
 
 ## Conclusion
+
 
 
 ## References
