@@ -1,0 +1,588 @@
+number of batches: 787
+sum of samples trained 196750
+loss after epoch 1 = 0.320875: 
+train accuracy after epoch 1 = 0.053266: 
+-----------------------------------
+
+sum of samples trained 196750
+loss after epoch 2 = 0.109181: 
+train accuracy after epoch 2 = 0.134264: 
+-----------------------------------
+
+sum of samples trained 196750
+loss after epoch 3 = 0.087864: 
+train accuracy after epoch 3 = 0.333062: 
+-----------------------------------
+
+sum of samples trained 196750
+loss after epoch 4 = 0.074077: 
+train accuracy after epoch 4 = 0.457584: 
+-----------------------------------
+
+sum of samples trained 196750
+loss after epoch 5 = 0.063997: 
+train accuracy after epoch 5 = 0.547072: 
+-----------------------------------
+
+sum of samples trained 196750
+loss after epoch 6 = 0.055076: 
+train accuracy after epoch 6 = 0.625296: 
+-----------------------------------
+
+sum of samples trained 196750
+loss after epoch 7 = 0.046728: 
+train accuracy after epoch 7 = 0.696481: 
+-----------------------------------
+
+sum of samples trained 196750
+loss after epoch 8 = 0.038703: 
+train accuracy after epoch 8 = 0.761705: 
+-----------------------------------
+
+sum of samples trained 196750
+loss after epoch 9 = 0.031668: 
+train accuracy after epoch 9 = 0.816423: 
+-----------------------------------
+
+sum of samples trained 196750
+loss after epoch 10 = 0.025565: 
+train accuracy after epoch 10 = 0.861008: 
+-----------------------------------
+
+sum of samples trained 196750
+loss after epoch 11 = 0.020538: 
+train accuracy after epoch 11 = 0.895317: 
+-----------------------------------
+
+sum of samples trained 196750
+loss after epoch 12 = 0.016594: 
+train accuracy after epoch 12 = 0.920374: 
+-----------------------------------
+
+sum of samples trained 196750
+loss after epoch 13 = 0.013589: 
+train accuracy after epoch 13 = 0.938062: 
+-----------------------------------
+
+sum of samples trained 196750
+loss after epoch 14 = 0.011245: 
+train accuracy after epoch 14 = 0.951162: 
+-----------------------------------
+
+sum of samples trained 196750
+loss after epoch 15 = 0.009428: 
+train accuracy after epoch 15 = 0.961132: 
+-----------------------------------
+
+done training
+True   | Predicted
+y3bxm  |y3bxm     
+3c6en  |3c6en     
+87e7k  |87e7k     
+48cnh  |48cnh     
+7fkp2  |7fkp2     
+w2w2r  |w2w2r     
+3cfpn  |3cfpn     
+md6k5  |mb6k5     
+fefmf  |fefmf     
+7h7cy  |7h7cy     
+h5g5e  |h5g5e     
+gny8x  |gny8x     
+wryrb  |wryrb     
+cm7rb  |cm7rb     
+726a7  |726a7     
+b7gr3  |b7gr3     
+e4n2n  |e4n2n     
+perg4  |perg4     
+gabx7  |gabx7     
+83wd5  |83wd5     
+e5cdm  |e5cdm     
+x4n7e  |x4n7e     
+d72hm  |d72hm     
+k56ah  |k56ah     
+nbha3  |nbha3     
+7rb84  |7rb84     
+cw6bk  |cw6bk     
+f26gx  |f26gx     
+2amep  |2amep     
+aegh8  |aegh8     
+5h4ry  |5h4ry     
+5mdcm  |5mdkm     
+w6h8f  |w6h8f     
+xhed2  |xhed2     
+gbfge  |gbfge     
+n3kpr  |n3kpr     
+d6cpy  |d6cpy     
+xf4wa  |xf4wa     
+xe274  |xe274     
+g45xn  |g45xn     
+k7wkw  |k7wkw     
+f2cfm  |f2cxm     
+226ax  |226ax     
+2arkw  |2arkw     
+bbmyg  |bbmyg     
+24865  |24865     
+bfd2p  |bfd2p     
+m242w  |m242w     
+dpdk5  |dpdk5     
+ck4ag  |ck4ag     
+4wamd  |4wamd     
+4k8w2  |4k8w2     
+bx64c  |bx64c     
+dnw7y  |dnw7y     
+ncggy  |ncggy     
+h424k  |h424k     
+k8wbm  |k8wbm     
+ckgdm  |ckgdm     
+ddxm7  |ddxm7     
+rkgg2  |rkgg2     
+474fc  |474fc     
+nd3da  |nd3da     
+b5gr8  |b5gr8     
+wfyr2  |wfyn2     
+5bcbc  |5bcbc     
+kkk2n  |kkk2n     
+5mmhh  |5mmhh     
+ene2y  |ene2y     
+33cg2  |33cg2     
+ck3f5  |ck3f5     
+5864g  |5864g     
+fmb76  |fmb76     
+wy7gg  |wy7gg     
+nb2pf  |nb2pf     
+rmprm  |rmprm     
+w8xhn  |w8xhn     
+aa4hw  |aa4hw     
+xhrwn  |xhrwn     
+hdfk6  |hdfk6     
+xg5kx  |xg5kx     
+6ya6b  |6ya6b     
+e563a  |e563a     
+r88bg  |r88bg     
+4m3bc  |4m3bc     
+m7885  |m7885     
+4cbae  |4cbae     
+hg4dg  |hg4dg     
+gnyx5  |gnyx5     
+23gmw  |23gmw     
+xrbb4  |xrbb4     
+ghcc3  |ghcc3     
+5cxrb  |5cxrb     
+pk8yx  |pk8yx     
+4y87x  |4y87x     
+3rr83  |3rr83     
+cakcn  |cakcn     
+64rga  |64rga     
+bnrfd  |bnrfd     
+x5c53  |x5c53     
+575my  |575my     
+7wenk  |7wedk     
+npnyk  |npnyk     
+w5hn3  |w5hn3     
+cfdkd  |cfdkd     
+c854p  |c854p     
+p3hay  |p3hay     
+bwgdy  |bwgdy     
+8egd4  |8egd4     
+aean8  |aean8     
+eg5g4  |eg5g4     
+hx65a  |hx65a     
+wxxbg  |wxxbg     
+bppan  |bppan     
+6p7xc  |6p7xc     
+3dcbm  |3dcbm     
+gbwg3  |gbwg3     
+fwydf  |fwydf     
+mbkad  |mbkad     
+43wxg  |43wxg     
+686k3  |686k3     
+n4mh7  |n4mh7     
+e4372  |e4372     
+x8abc  |x8abc     
+fewkc  |fewkc     
+adepr  |adepr     
+mepga  |mepga     
+cdy67  |cdy67     
+mxrxy  |mxrxy     
+gbr8g  |gbr8g     
+ncdpr  |ncdpr     
+y3ypc  |y3ypc     
+5ganw  |5ganw     
+52xad  |52xad     
+f67hw  |f67hw     
+yffkc  |yffkc     
+6rd8k  |6rd8k     
+nxcax  |nxcax     
+k4axf  |k4axf     
+mk2x7  |mk2x7     
+2g56r  |2g56r     
+355me  |355me     
+2mgwm  |2mgwn     
+k6bn7  |k6bn7     
+8ry73  |8ry73     
+63r6x  |63r6x     
+hcwkm  |hcwkm     
+83ykh  |83ykh     
+fhapn  |fhapn     
+3rw7p  |3rw7p     
+wfpk2  |wfpk2     
+angbn  |angbn     
+cn2wx  |cn2wx     
+dbc6f  |dbc6f     
+3ebdd  |3ebdd     
+4654d  |4654d     
+c6p4h  |c6p4h     
+fwmyh  |fwmyh     
+pym47  |pym47     
+m3h34  |m3h34     
+ggghn  |ggghn     
+wg6xw  |wg6xw     
+b4x7w  |b4x7w     
+cbark  |cbark     
+pdba6  |pdba6     
+kxwfn  |kxwfn     
+xc2g2  |xc2g2     
+2bek7  |2bek7     
+frae8  |fcee8     
+3a2fr  |3a2fr     
+fffgf  |ffgff     
+4bx5h  |4bx5h     
+bmn2b  |bmn2b     
+m44dr  |m44dr     
+26hkc  |26hkc     
+yyhe6  |yyhe6     
+5g7xg  |5g7xg     
+f6dg8  |f6dg8     
+pm3fa  |pm3fa     
+4ch6w  |4ch6w     
+d5gyc  |d5gyc     
+ke7ed  |ke7ed     
+c7der  |c7der     
+fg6rn  |fg6rn     
+x8ygd  |x8ygd     
+m7e8p  |m7e8p     
+53m7g  |53m7g     
+ka8d3  |ka8d3     
+3gw26  |3gw26     
+yrxp3  |yrxp3     
+4mfpc  |4mfpc     
+5hgnr  |5hgnr     
+a5hbr  |a5hbr     
+h2frk  |h2frk     
+nw3am  |nw3am     
+bh63h  |bh63h     
+kn8ef  |kn8ef     
+27nxh  |27nxh     
+ywhed  |ywhed     
+gfphn  |gfphn     
+wbbmp  |wbbmp     
+6x4pn  |6x4pn     
+ghmek  |ghmek     
+42w2r  |42w2r     
+6cff4  |6cff4     
+xmped  |xmped     
+56w78  |56w78     
+d57e5  |d57e5     
+nxamm  |nxamm     
+fe8ax  |fe8ax     
+m6wrc  |m6wrc     
+464cf  |464cf     
+p53wg  |p53wg     
+f2fcm  |f2fcm     
+ed43h  |ed43h     
+xm2yg  |xm2yg     
+f52f3  |f52f3     
+yxyah  |yxyah     
+a6bm8  |a6bm8     
+ncm4x  |ncm4x     
+dmcdd  |dmcdd     
+hakeg  |hakeg     
+xdn35  |xdn35     
+35e3g  |35e3g     
+ykagb  |ykagb     
+a3eh5  |a3eh5     
+85xe7  |85xe7     
+n3maw  |n3maw     
+n2a27  |n2a27     
+g2f7w  |g2f7w     
+x84a8  |x84a8     
+w2akd  |w2akd     
+5ebrm  |5ebrm     
+4562f  |4562f     
+kwcrg  |kwcrg     
+762x5  |762x5     
+7bx6h  |7bx6h     
+557cn  |557cn     
+k6dap  |k6dap     
+e3ka7  |e3ka7     
+kh6rx  |kh6rx     
+r5dyr  |r5dyr     
+726x4  |726x4     
+mg83y  |mg88y     
+r4e2d  |r4e2d     
+d8a2w  |d8a2w     
+mykf8  |mykf8     
+rc5x5  |rc5x5     
+kf6dk  |kf6dk     
+3342d  |3342d     
+mcpxm  |mcpxm     
+5ddnh  |5ddhh     
+38dya  |38dya     
+der28  |der28     
+gcffp  |gcffp     
+yfwdf  |yfwdf     
+kryxk  |kryxk     
+pdb6g  |pdb6g     
+pkehw  |pkehw     
+47h6c  |47h6c     
+wf8rf  |wf8rf     
+6kgk7  |6kgk7     
+d5wbb  |d5wbb     
+edxhw  |edxhw     
+6bkfg  |6bkfg     
+h8knx  |h8knx     
+dpdc8  |dpdc8     
+yhg46  |yhg46     
+erw5p  |erw5p     
+2fhf5  |2fhf5     
+5erde  |5erde     
+xxw5y  |xxw5y     
+xn28k  |xn28k     
+pmycp  |pmycp     
+w8yxp  |w8yxp     
+fb2x4  |fb2x4     
+5aw6a  |5aw6a     
+abcwm  |abcwm     
+xd4ck  |xd4ck     
+n5beg  |n5beg     
+p4a36  |p4a36     
+gfamx  |gfamx     
+aaax3  |aaax3     
+bf38g  |bf38g     
+2g6fn  |2g6fn     
+acmf7  |acmf7     
+y3yhh  |y3yhh     
+a4364  |a4364     
+namyn  |namyn     
+8eaec  |8eaec     
+ew6k3  |ew6k3     
+ffwdm  |ffddm     
+eb73m  |eb73m     
+88am2  |88am2     
+5hnwy  |5hnwy     
+pehrw  |pehrw     
+ha3n5  |ha3n5     
+bae44  |bae44     
+3b66k  |3b66k     
+cyf67  |cyf67     
+h5dxh  |h5dxh     
+yy5aw  |yy5aw     
+fdmn6  |fdmn6     
+r3eap  |r3eap     
+4k5ph  |4k5ph     
+ydmpp  |ydmpp     
+b8a5h  |b8a5h     
+wax25  |wax25     
+xdgy7  |xdgy7     
+2cnwc  |2cnwc     
+yy75c  |yy75c     
+2n85k  |2n85k     
+p8xkx  |p8xkx     
+hmp8d  |hmp8d     
+p2368  |p2368     
+gwebr  |gwebr     
+82eem  |82eem     
+aggb5  |aggb5     
+c7p48  |c7p48     
+kypen  |kypen     
+r24rp  |r24rp     
+chk8f  |chk8f     
+68yh5  |68yh5     
+xar4e  |xar4e     
+77mkr  |77mkr     
+n6cn2  |n6cn2     
+wk56w  |wk56w     
+dmrp6  |dmrp6     
+625m3  |625m3     
+kg2w3  |kg2w3     
+cfx4y  |cfx4y     
+bhf5n  |bhf5n     
+73f73  |73f73     
+4k5dm  |4k5dm     
+c64mx  |c64mx     
+6kfgy  |6kfgy     
+nwkx4  |nwkx4     
+efmh6  |efmh6     
+p7py4  |p7py4     
+reaam  |reaam     
+mcmda  |mcmda     
+2br86  |2br86     
+dmn27  |dmn27     
+bgkcd  |bgkcd     
+hwn7p  |hwn7p     
+xd66f  |xd66f     
+ewbd4  |ewbd4     
+b4xme  |b4xme     
+3wgc2  |3wgc2     
+gfaym  |gfaym     
+2yg43  |2yg43     
+7ewnn  |7ewnn     
+yg25x  |yg25x     
+c2x47  |c2x47     
+7rekc  |7rekc     
+58fk6  |58fk6     
+nf3bd  |nf3bd     
+7mx5d  |7mx5d     
+cxchg  |cxchg     
+ndb33  |ndb33     
+r4rae  |r4rae     
+ne235  |ne235     
+c54mf  |c54mf     
+cemfn  |cemfn     
+a256r  |a256r     
+kgmhg  |kgmhg     
+7mrpg  |7mrpg     
+3k38g  |3k38g     
+56hxm  |56hxm     
+aberb  |aberb     
+pcbnh  |pcbnh     
+crkhf  |crkhf     
+2fren  |2fren     
+awyw8  |awyw8     
+66adw  |66adw     
+xyx3x  |xyx3x     
+wr82n  |wr82n     
+5xemk  |5xemk     
+e2wgb  |e2wgb     
+a7fgf  |a7fgf     
+mah8k  |mah8k     
+pynhe  |pynhe     
+g5fc2  |g5fc2     
+b38pc  |b38pc     
+36a37  |36a37     
+e32wd  |e32wd     
+c34wy  |c34wy     
+rcmkw  |rcnkw     
+565d4  |565d4     
+e5d3n  |e5d3n     
+dmcy4  |dmcy4     
+rd25b  |rd25b     
+2ha56  |2ha56     
+n8cr2  |n8cr2     
+k38fe  |k38fe     
+8ycy8  |8ycy8     
+k4ykb  |k4ykb     
+r57hw  |r57hw     
+28fb7  |28fb7     
+w5kpb  |w5kpb     
+y744w  |y744w     
+5crpm  |5crpm     
+m4y48  |m4y48     
+5am8r  |5am8r     
+kfw47  |kfw47     
+drp6w  |drp6w     
+y78gd  |y78gd     
+mk8ax  |mk8ax     
+8b3f5  |8b3f5     
+dr3ya  |dr3ya     
+xfwdy  |xfwdy     
+aamka  |aamka     
+cy25a  |cy25a     
+cgam5  |cgam5     
+8b8k3  |8b8k3     
+5mrw5  |5mrw5     
+wn3hc  |wn3hc     
+2rmy3  |2rmy3     
+hh3pd  |hh3pd     
+57eb5  |57eb5     
+k3hmr  |k3hmr     
+kyeb5  |kyeb5     
+wdpw7  |wdpw7     
+3axpp  |3axpp     
+nprch  |nprch     
+gm6fk  |gm66k     
+8nddr  |8nddr     
+7gc34  |7gc34     
+wm5yf  |wm5yf     
+gbn6m  |gbn6m     
+f4cdw  |f4cdw     
+rb8e6  |rb8e6     
+b8w6m  |b8w6m     
+6ebc7  |6ebc7     
+5npex  |5npex     
+xk32d  |xk32d     
+5fbma  |5fbma     
+fbewb  |fbewb     
+d66rb  |d66rb     
+558b6  |558b6     
+3wre8  |3wre8     
+gebfx  |gebfx     
+hfmdp  |hfmdp     
+ed6yf  |ed6yf     
+3d6r3  |3d6r3     
+6m4ma  |6m4ma     
+2h5cf  |2h5cf     
+pgfkx  |pgfkx     
+n3p2c  |n3p2c     
+ne857  |ne857     
+rmbb5  |rmbb5     
+54g6h  |54g6h     
+kd3w2  |kd3w2     
+8nryn  |8nryn     
+2dmma  |2dmma     
+p8kwg  |p8kwg     
+f4xd2  |f4xd2     
+ay52m  |ay52m     
+rwnbp  |rwnbp     
+dpy4d  |dpy4d     
+wby3c  |wby3c     
+6w272  |6w272     
+4222h  |4222h     
+rg6b6  |rg6b6     
+dkpr8  |dkpr8     
+a7bm2  |a7bm2     
+a4rwy  |a4rwy     
+kw5wf  |kw5wf     
+hfk8r  |hfk8r     
+32775  |32775     
+ywpy8  |ywpy8     
+558b2  |558b2     
+d5ggm  |d5ggm     
+k2bdh  |k2bdh     
+8n5yx  |8n5yx     
+cr5xx  |cr5xx     
+kwpmn  |kwpmm     
+c2yx5  |c2yx5     
+k8dda  |k8dda     
+enaad  |enaad     
+x4x4m  |x4x4m     
+4m3ee  |4m3ee     
+en5wk  |en5wk     
+6ampw  |6ampw     
+y2bch  |y2bch     
+87rrw  |87rrw     
+x3wda  |x3wda     
+hh8xk  |hh8xk     
+5fc4k  |5fc4k     
+6n656  |6n656     
+xd2dg  |xd2dg     
+h3fny  |h3fny     
+m6dkr  |m66kn     
+46dwn  |46dwm     
+k8ppa  |k8ppa     
+cadfa  |cadfa     
+nae25  |nae25     
+g72wg  |g72wg     
+4f7d7  |4f7d7     
+xyy3b  |xyy3b     
+5dpdp  |5dpdp     
+printing correct predictions
+[[ True  True  True  True  True]
+ [ True  True  True  True  True]
+ [ True  True  True  True  True]
+ ..., 
+ [ True  True  True  True  True]
+ [ True  True  True  True  True]
+ [ True  True  True  True  True]]
+done testing
+Test Accuracy 0.9924
