@@ -1,7 +1,7 @@
 from __future__ import division
 # all tensorflow api is accessible through this
 import tensorflow as tf
-# to visualize the resutls
+# to visualize the results
 import matplotlib.pyplot as plt
 import numpy as np
 import time
@@ -10,14 +10,11 @@ from readers import label_util
 from scipy.misc import imread
 import sys
 
-# train_X, train_Y = image_reader.load_training_dataset()
-test_X, test_Y = image_reader.load_testing_dataset()
-
 X_input = tf.placeholder(tf.float32, [None, 152 * 80])
 X = tf.reshape(X_input, shape=[-1, 152, 80, 1])
 Y_ = tf.placeholder(tf.float32, [None, 5 * image_reader.NUM_CLASSES])
 
-learning_rate = 0.001
+learning_rate = 0.0001
 
 def create_fully_connected_weight(shape):
     return tf.Variable(tf.truncated_normal(shape, stddev=0.1))
@@ -105,7 +102,7 @@ sess = tf.Session()
 # sess.run()
 
 # Restore variables from disk.
-saver.restore(sess, "model.ckpt")
+saver.restore(sess, "new_model.ckpt")
 
 n_classes = image_reader.NUM_CLASSES
 batch_size = 250
@@ -151,7 +148,11 @@ def test_epochs(data=None, labels=None):
     return 1
 
 
-
+def normalize_data(X):
+    x_mean = X.mean(axis=0)
+    x_std = X.std(axis=0)
+    X = (X - x_mean) / (x_std + 0.00001)
+    return X
 
 def test_and_evaluate(data=None, labels=None):
     assert (data.shape[0] == labels.shape[0])
@@ -161,7 +162,6 @@ def test_and_evaluate(data=None, labels=None):
     label_util.compare_predictions(test_results[0],labels)
     print "printing correct predictions"
     print  test_results[1]
-    #print test_results[1].shape
     return test_results
 
 i = 1
@@ -169,46 +169,11 @@ i = 1
 train_ac = []
 train_loss = []
 test_ac = []
-# for e in xrange(n_epochs):
-#     start_time = time.time()
-#     n_data = image_reader.training_dataset_length()
-#     # n_data = train_X.shape[0]
-#     # print n_data
-#     perm = np.random.permutation(n_data)
-#     # train_X = train_X[perm, :]
-#     # train_Y = train_Y[perm]
-#     mean_loss_per_sample_train, accuracy_per_sample_train = all_batches_run_train(n_batches_train)
-#     #test_a = test_epochs(data=test_X, labels=test_Y)
-#     print "loss after epoch %d = %f: " % (i, mean_loss_per_sample_train)
-#     print "train accuracy after epoch %d = %f: " % (i, accuracy_per_sample_train)
-#     #print "test accuracy after epoch %d = %f: " % (i, test_a[0])
-#     print "-----------------------------------\n"
-#     i = i + 1
-#     train_ac.append(accuracy_per_sample_train)
-#     train_loss.append(mean_loss_per_sample_train)
-# #    test_ac.append(test_a[0])
 
-
-
-# print('done training')
-# save_path = saver.save(sess, "model.ckpt")
-# plt.title("Training Accuracy over epochs")
-# plt.plot(train_ac, label="Training Accuracy")
-#plt.plot(test_ac, label="Test Accuracy")
-# plt.xlabel("epoch")
-# plt.legend(loc=4)
-# plt.grid(True)
-# plt.show()
-
-# plt.title("Training loss over epochs")
-# plt.plot(train_loss, label="Training Loss")
-# plt.xlabel("epoch")
-# plt.grid(True)
-# plt.show()
-
-img = imread(sys.argv[1], flatten=True).flatten()
-captcha_text = sys.argv[1][0:5]
-test_results = test_and_evaluate(data=np.array([img]), labels=np.array([label_util.words_to_vec(captcha_text)]))
+# img = imread(sys.argv[1], flatten=True).flatten()
+# captcha_text = sys.argv[1][0:5]
+demo_X, demo_Y = image_reader.load_demo_dataset(sys.argv[1])
+test_results = test_and_evaluate(data=demo_X, labels=demo_Y)
 
 print('done testing')
 print("Test Accuracy " + str(test_results[2]))

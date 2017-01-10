@@ -27,6 +27,10 @@ def load_testing_dataset():
     no_files = len(os.listdir(testing_folder))
     return load_dataset(testing_folder, 0, no_files)
 
+def load_demo_dataset(folder):
+    no_files = len(os.listdir(folder))
+    return load_dataset(folder, 0, no_files)
+
 def normalize_data(X):
     x_mean = X.mean(axis=0)
     x_std = X.std(axis=0)
