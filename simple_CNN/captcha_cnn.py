@@ -117,7 +117,7 @@ def all_batches_run_train(n_batches, data=None, labels=None):
     for b in xrange(n_batches):
 
         offset = b * batch_size
-        batch_data, batch_labels = image_reader.load_dataset("../imgs/", offset, offset + batch_size)
+        batch_data, batch_labels = image_reader.load_dataset(image_reader.training_folder, offset, offset + batch_size)
         # batch_data = data[offset: offset + batch_size, :]
         n_samples = batch_data.shape[0]
 
